@@ -1,0 +1,49 @@
+@import "base/variables.scss";
+
+.whole-container {
+  height: 100em;
+  background: black;
+  color: $lightgrey;
+}
+
+.navbar {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid white;
+  align-items: center;
+  padding-top: 5px;
+}
+
+.main-logo {
+  width: 300px;
+  height: 75px;
+  position: relative;
+  top: 5px;
+}
+
+.small-logo {
+  width: 75px;
+  height: 50px;
+}
+
+.header {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & .input-label {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  & .search-field {
+    width: 400px;
+    padding: 10px;
+    font-size: 16px;
+    &:focus {
+      outline: none;
+      border: 1px solid $orange;
+    }
+  }
+}

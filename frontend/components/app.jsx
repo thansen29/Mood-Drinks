@@ -1,10 +1,15 @@
 import React from 'react';
+import Navbar from './navbar/navbar';
+import Header from './header';
 
 class App extends React.Component {
   render() {
     return (
-      <div>SUHHHHHHHHH
-      </div>
+      <section className="whole-container">
+        <Navbar />
+
+        <Header />
+      </section>
     );
   }
 }
