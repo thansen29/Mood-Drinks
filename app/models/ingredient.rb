@@ -1,3 +1,3 @@
 class Ingredient < ApplicationRecord
-  validates :name, :amount, presence: true
+  validates :name, presence: true
 end

@@ -1,3 +1,3 @@
 class Tool < ApplicationRecord
-  validates :tool, presence: true
+  validates :name, presence: true, uniqueness: true
 end
