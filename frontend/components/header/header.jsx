@@ -36,7 +36,7 @@ class Header extends React.Component {
   handleSelection(item) {
     return () => {
       const details = `${item.trackName} by ${item.artistName}`;
-      this.setState({ searchField: details });
+      this.setState({ searchField: details, searchResults: [] });
     }
   }
 
@@ -45,6 +45,7 @@ class Header extends React.Component {
     const items = _.map(searchResults, (item, idx) => {
       return (
         <li
+          className="list-item"
           key={ idx }
           onClick={ this.handleSelection(item) }>
 
@@ -70,14 +71,22 @@ class Header extends React.Component {
           What are you listening to?
         </label>
 
-        <input
-          className="search-field"
-          value={ this.state.searchField }
-          onChange={ this.handleChange('searchField') } />
-
         <button onClick={ this.triggerSearch }>Click me</button>
 
-        { items }
+        <div className="container">
+
+          <input
+            className="search-field"
+            value={ this.state.searchField }
+            onChange={ this.handleChange('searchField') } />
+
+          <div className="results-wrapper">
+            <ul className="list-ul">
+              { items }
+            </ul>
+          </div>
+
+        </div>
 
       </header>
     );
