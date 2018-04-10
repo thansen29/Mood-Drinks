@@ -1,18 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { searchTunes } from '../actions/search_actions';
-
-const mapStateToProps = state => {
-  return {
-    searchResults: state.songs.searchResults
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    searchTunes: (params) => dispatch(searchTunes(params))
-  }
-}
+import * as _ from 'lodash';
+import SearchResultItem from './search_result_item';
 
 class Header extends React.Component {
   constructor(props) {
@@ -26,6 +14,7 @@ class Header extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.triggerSearch = this.triggerSearch.bind(this);
+    this.handleSelection = this.handleSelection.bind(this);
   }
 
   handleChange(field) {
@@ -35,7 +24,6 @@ class Header extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    debugger
     if (newProps.searchResults) {
       this.setState({ searchResults: newProps.searchResults });
     }
@@ -45,7 +33,36 @@ class Header extends React.Component {
     this.props.searchTunes(this.state.searchField);
   }
 
+  handleSelection(item) {
+    return () => {
+      const details = `${item.trackName} by ${item.artistName}`;
+      this.setState({ searchField: details });
+    }
+  }
+
   render() {
+    const { searchResults } = this.state;
+    const items = _.map(searchResults, (item, idx) => {
+      return (
+        <li
+          key={ idx }
+          onClick={ this.handleSelection(item) }>
+
+          <span>
+            <img src={ item.artworkUrl30 } />
+          </span>
+
+          <span>
+            { item.artistName }
+          </span>
+
+          <span>
+            { item.trackName }
+          </span>
+        </li>
+      )
+    });
+
     return (
       <header className="header">
 
@@ -60,10 +77,11 @@ class Header extends React.Component {
 
         <button onClick={ this.triggerSearch }>Click me</button>
 
+        { items }
 
       </header>
     );
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default Header;

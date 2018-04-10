@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from './navbar/navbar';
-import Header from './header';
+import HeaderContainer from './header/header_container';
 
 class App extends React.Component {
   render() {
@@ -8,7 +8,7 @@ class App extends React.Component {
       <section className="whole-container">
         <Navbar />
 
-        <Header />
+        <HeaderContainer />
       </section>
     );
   }
