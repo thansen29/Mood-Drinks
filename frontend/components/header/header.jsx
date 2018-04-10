@@ -8,9 +8,10 @@ class Header extends React.Component {
 
     this.state = {
       searchField: '',
-      timer: 0,
       searchResults: []
     };
+
+    this.timer = null;
 
     this.handleChange = this.handleChange.bind(this);
     this.triggerSearch = this.triggerSearch.bind(this);
@@ -19,6 +20,10 @@ class Header extends React.Component {
 
   handleChange(field) {
     return e => {
+      clearTimeout(this.timer);
+      this.timer = setTimeout(() => {
+        this.triggerSearch();
+      }, 500);
       this.setState({ [field]: e.target.value });
     }
   }
@@ -71,9 +76,8 @@ class Header extends React.Component {
           What are you listening to?
         </label>
 
-        <button onClick={ this.triggerSearch }>Click me</button>
-
-        <div className="container">
+        <form
+          className="container">
 
           <input
             className="search-field"
@@ -86,7 +90,7 @@ class Header extends React.Component {
             </ul>
           </div>
 
-        </div>
+        </form>
 
       </header>
     );
