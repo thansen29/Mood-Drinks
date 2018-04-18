@@ -29,9 +29,7 @@ class Header extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (newProps.searchResults) {
-      this.setState({ searchResults: newProps.searchResults });
-    }
+    this.setState({ searchResults: newProps.searchResults });
   }
 
   triggerSearch() {
