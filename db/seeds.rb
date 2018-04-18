@@ -5,13 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# Genre.destroy_all
-#
-# pop = Genre.create('name': 'pop')
-# punk = Genre.create('name': 'punk')
-# rock = Genre.create('name': 'rock')
-# metal = Genre.create('name': 'metal')
-# rap = Genre.create('name': 'rap')
+Genre.destroy_all
+
+pop = Genre.create('name': 'pop')
+punk = Genre.create('name': 'punk')
+rock = Genre.create('name': 'rock')
+metal = Genre.create('name': 'metal')
+rap = Genre.create('name': 'rap')
+post_teen_pop = Genre.create('name': 'post-teen pop')
+viral_pop = Genre.create('name': 'viral pop')
+edm = Genre.create('name': 'edm')
+disco = Genre.create('name': 'disco')
 #
 # Artist.destroy_all
 #
@@ -62,8 +66,16 @@
 # sm_lime = Ingredient.create('name': lime_juice, 'amount': 0.25, 'unit': 'oz')
 # three_angs = Ingredient.create('name': angostura_bitters, 'amount': 3, 'unit': 'drops')
 
+Drink.destroy_all
+
+gt_image = File.open('app/assets/images/ginTonic.jpg')
 gin_and_tonic = Drink.create('name': 'Gin & Tonic', 'directions': 'Pour immature
    brandy over ice in a chilled cocktail glass. Add tonic to taste. Finish with a
-   squeeze of lime.', 'tips': 'Try Jack Rudy small batch or Wilks & Wilson for full on tonic assault.')
-gt_image = File.open('app/assets/images/ginTonic.jpg')
-gin_and_tonic.image = gt_image
+   squeeze of lime.', 'tips': 'Try Jack Rudy small batch or Wilks & Wilson for full on tonic assault.',
+'image': gt_image)
+DrinkGenre.create('drink_id': gin_and_tonic.id, 'genre_id': pop.id)
+DrinkGenre.create('drink_id': gin_and_tonic.id, 'genre_id': punk.id)
+DrinkGenre.create('drink_id': gin_and_tonic.id, 'genre_id': post_teen_pop.id)
+DrinkGenre.create('drink_id': gin_and_tonic.id, 'genre_id': viral_pop.id)
+DrinkGenre.create('drink_id': gin_and_tonic.id, 'genre_id': edm.id)
+DrinkGenre.create('drink_id': gin_and_tonic.id, 'genre_id': disco.id)
