@@ -1,14 +1,20 @@
 require 'rest-client'
 
 class SearchController < ApplicationController
+
   def search
     token = self.authorize()
 
-    genres_query = RestClient.get('https://api.spotify.com/v1/search?q=Thrice&type=artist',
+    # thr yields []
+    # empty gives 400
+    # so dont let search unless some form of data is entered
+    # can even not let search unless they select an item
+    genres_query = RestClient.get('https://api.spotify.com/v1/search?q=a&type=artist',
                             {"Authorization" => "Bearer #{token}"})
 
     genres = JSON.parse(genres_query.body)['artists']['items'][0]['genres']
 
+    rex = 1
   end
 
   def authorize
