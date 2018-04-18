@@ -7,4 +7,10 @@ class Drink < ApplicationRecord
   has_many :drink_genres
   has_many :genres, through: :drink_genres
 
+  has_many :drink_ingredients
+  has_many :ingredients, through: :drink_ingredients
+
+  has_many :drink_tools
+  has_many :tools, through: :drink_tools
+
 end

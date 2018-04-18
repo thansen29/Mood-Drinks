@@ -1,0 +1,2 @@
+class DrinkTool < ApplicationRecord
+end
