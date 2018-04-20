@@ -12,7 +12,9 @@ DrinkGenre.destroy_all
 Genre.destroy_all
 
 pop = Genre.create('name': 'pop')
+emo = Genre.create('name': 'emo')
 punk = Genre.create('name': 'punk')
+hardcore = Genre.create('name': 'hardcore')
 rock = Genre.create('name': 'rock')
 metal = Genre.create('name': 'metal')
 rap = Genre.create('name': 'rap')
@@ -20,6 +22,8 @@ post_teen_pop = Genre.create('name': 'post-teen pop')
 viral_pop = Genre.create('name': 'viral pop')
 edm = Genre.create('name': 'edm')
 disco = Genre.create('name': 'disco')
+house = Genre.create('name': 'house')
+techno = Genre.create('name': 'techno')
 salsa = Genre.create('name': 'salsa')
 folk = Genre.create('name': 'folk')
 regional_mexican = Genre.create('name': 'regional mexican')
@@ -36,6 +40,29 @@ r_b = Genre.create('name': 'R&B')
 hip_hop = Genre.create('name': 'hip hop')
 smooth_jazz = Genre.create('name': 'smooth jazz')
 quiet_storm = Genre.create('name': 'quiet storm')
+blues = Genre.create('name': 'blues')
+soul_blues = Genre.create('name': 'soul blues')
+southern = Genre.create('name': 'southern')
+traditional_jazz = Genre.create('name': 'traditional jazz')
+jazz = Genre.create('name': 'jazz')
+classical = Genre.create('name': 'classical')
+cajun = Genre.create('name': 'cajun')
+new_orleans_jazz = Genre.create('name': 'new orleans jazz')
+ragtime = Genre.create('name': 'ragtime')
+dixieland = Genre.create('name': 'dixieland')
+new_jack_swing = Genre.create('name': 'new jack swing')
+neo_soul = Genre.create('name': 'neo soul')
+indie_rock = Genre.create('name': 'indie rock')
+new_americana = Genre.create('name': 'new americana')
+indie_anthem_folk = Genre.create('name': 'indie anthem folk')
+folk_punk = Genre.create('name': 'folk punk')
+gypsy_punk = Genre.create('name': 'gypsy punk')
+bluegrass = Genre.create('name': 'bluegrass')
+piano_rock = Genre.create('name': 'piano rock')
+improvisational_jazz = Genre.create('name': 'improvisational jazz')
+post_bop = Genre.create('name': 'post bop')
+adult_standards = Genre.create('name': 'adult standards')
+crooner_jazz = Genre.create('name': 'crooner jazz')
 
 
 
@@ -62,6 +89,7 @@ glass_rimmer = Tool.create('name': 'Glass Rimmer')
 fruit_pick = Tool.create('name': 'Fruit Pick')
 muddler = Tool.create('name': 'Muddler')
 pint_glass = Tool.create('name': 'Pint Glass')
+julep_strainer = Tool.create('name': 'Julep Strainer')
 
 
 
@@ -113,20 +141,127 @@ two_american_brandy = Ingredient.create('name': 'Copper & Kings American Craft B
 creme_cacao = Ingredient.create('name': 'Crème de Cacao', 'amount': 0.75, 'unit': 'oz')
 cream = Ingredient.create('name': 'Cream', 'amount': 0.75, 'unit': 'oz')
 grated_nutmeg = Ingredient.create('name': 'Freshly grated nutmeg')
+maraschino_liqueur = Ingredient.create('name': 'Maraschino liqueur (Luxardo)', 'amount': 1, 'unit': 'tsp')
+lemon_juice = Ingredient.create('name': 'Fresh lemon juice', 'amount': 0.5, 'unit': 'tsp')
+demerara_syrup = Ingredient.create('name': 'Bar spoon of demerara syrup (we use 2:1)')
+pehchauds_bitters = Ingredient.create('name': 'peychaud’s bitters', 'amount': 2, 'unit': 'dashes')
+crushed_ice = Ingredient.create('name': 'Crushed Ice')
+onefive_american_brandy = Ingredient.create('name': 'Copper & Kings American Craft Brandy', 'amount': 1.5, 'unit': 'oz')
+half_gin = Ingredient.create('name': 'Gin', 'amount': 0.5, 'unit': 'oz')
+lemon_juice75 = Ingredient.create('name': 'Freshly squeezed lemon juice', 'amount': 0.75, 'unit': 'oz')
+orgeat75 = Ingredient.create('name': 'Orgeat', 'amount': 0.75, 'unit': 'oz')
+superfine_whole = Ingredient.create('name': 'Superfine sugar')
+orange_wedge_twist = Ingredient.create('name': 'Large orange wedge and twist')
+one_american_brandy = Ingredient.create('name': 'Copper & Kings American Brandy', 'amount': 1, 'unit': 'oz')
+one_tom_gin = Ingredient.create('name': 'Copper & Kings American Old Tom Gin', 'amount': 1, 'unit': 'oz')
+one_vermouth = Ingredient.create('name': 'Sweet Vermouth', 'amount': 1, 'unit': 'oz')
+bittermens = Ingredient.create('name': 'Bittermens Amere Sauvage (Or, Substitute: 2 Dashes Orange Bitters)', 'amount': 0.25, 'unit': 'oz')
+destillare = Ingredient.create('name': 'Destillaré Orange Curaçao To Top')
+sugar_cube = Ingredient.create('name': 'Sugar cube', 'amount': 1)
+two_angs = Ingredient.create('name': 'Angotsura bitters', 'amount': 2, 'unit': 'dashes')
+thick_orange_wedge = Ingredient.create('name': 'Thick slice orange wedge', 'amount': 1)
+one_amarena = Ingredient.create('name': 'Amarena/Maraska Cherry', 'amount': 1)
+one_apple_brandy = Ingredient.create('name': apple_brandy, 'amount': 1, 'unit': 'oz')
+
+
 
 
 Drink.destroy_all
 
+corpse_reviver_image = File.open('app/assets/images/corpseReviver.jpg')
+corpse_reviver = Drink.create('name': 'Corpse Reviver', 'directions': 'Combine brandy, Apple brandy & sweet vermouth In Mixing glass. Stir with ice. Strain into a chilled cocktail glass.',
+'image': corpse_reviver_image)
+DrinkGenre.create('drink_id': corpse_reviver.id, 'genre_id': hardcore.id)
+DrinkGenre.create('drink_id': corpse_reviver.id, 'genre_id': metalcore.id)
+DrinkGenre.create('drink_id': corpse_reviver.id, 'genre_id': emo.id)
+DrinkIngredient.create('drink_id': corpse_reviver.id, 'ingredient_id': one_american_brandy.id)
+DrinkIngredient.create('drink_id': corpse_reviver.id, 'ingredient_id': one_apple_brandy.id)
+DrinkIngredient.create('drink_id': corpse_reviver.id, 'ingredient_id': one_vermouth.id)
+DrinkTool.create('drink_id': corpse_reviver.id, 'tool_id': mixing_glass.id)
+DrinkTool.create('drink_id': corpse_reviver.id, 'tool_id': bar_spoon.id)
+DrinkTool.create('drink_id': corpse_reviver.id, 'tool_id': julep_strainer.id)
+
+old_fash_brandy_image = File.open('app/assets/images/oldFashBrandy.jpg')
+old_fash_brandy = Drink.create('name': 'Brandy Old Fashioned', 'directions': 'In a chilled rocks glass, muddle the sugar, bitters, orange wedge and cherry into a thick paste, careful not to work the orange peel. Add brandy, stir, and fill glass with ice and serve.',
+'image': old_fash_brandy_image)
+DrinkGenre.create('drink_id': old_fash_brandy.id, 'genre_id': adult_standards.id)
+DrinkGenre.create('drink_id': old_fash_brandy.id, 'genre_id': crooner_jazz.id)
+DrinkIngredient.create('drink_id': old_fash_brandy.id, 'ingredient_id': two_american_brandy.id)
+DrinkIngredient.create('drink_id': old_fash_brandy.id, 'ingredient_id': sugar_cube.id)
+DrinkIngredient.create('drink_id': old_fash_brandy.id, 'ingredient_id': two_angs.id)
+DrinkIngredient.create('drink_id': old_fash_brandy.id, 'ingredient_id': thick_orange_wedge.id)
+DrinkIngredient.create('drink_id': old_fash_brandy.id, 'ingredient_id': one_amarena.id)
+DrinkTool.create('drink_id': old_fash_brandy.id, 'tool_id': muddler.id)
+DrinkTool.create('drink_id': old_fash_brandy.id, 'tool_id': bar_spoon.id)
+
+ampersand_image = File.open('app/assets/images/ampersand.jpg')
+ampersand = Drink.create('name': 'Ampersand', 'directions': 'Combine ingredients in mixing glass. Add ice and stir. Strain into a cocktail glass. Top with dry curacao. Garnish with an expressed orange peel.',
+'image': ampersand_image)
+DrinkGenre.create('drink_id': ampersand.id, 'genre_id': piano_rock.id)
+DrinkGenre.create('drink_id': ampersand.id, 'genre_id': improvisational_jazz.id)
+DrinkGenre.create('drink_id': ampersand.id, 'genre_id': post_bop.id)
+DrinkIngredient.create('drink_id': ampersand.id, 'ingredient_id': one_american_brandy.id)
+DrinkIngredient.create('drink_id': ampersand.id, 'ingredient_id': one_tom_gin.id)
+DrinkIngredient.create('drink_id': ampersand.id, 'ingredient_id': one_vermouth.id)
+DrinkIngredient.create('drink_id': ampersand.id, 'ingredient_id': bittermens.id)
+DrinkIngredient.create('drink_id': ampersand.id, 'ingredient_id': destillare.id)
+DrinkTool.create('drink_id': ampersand.id, 'tool_id': mixing_glass.id)
+DrinkTool.create('drink_id': ampersand.id, 'tool_id': bar_spoon.id)
+DrinkTool.create('drink_id': ampersand.id, 'tool_id': hawthorne_strainer.id)
+DrinkTool.create('drink_id': ampersand.id, 'tool_id': jigger.id)
+DrinkTool.create('drink_id': ampersand.id, 'tool_id': citrus_peeler.id)
+
+crusta_image = File.open('app/assets/images/crusta.jpg')
+crusta = Drink.create('name': 'Crusta', 'directions': 'Pare the full peel off of the lemon and carefully curl the peel around the inside of the glass. Moisten the rim with cut lemon and dip in superfine sugar, forming a crust on the glass and peel. Combine ingredients in mixing glass. Add ice. Stir and strain into prepared glass.',
+'image': crusta_image)
+DrinkGenre.create('drink_id': crusta.id, 'genre_id': blues.id)
+DrinkGenre.create('drink_id': crusta.id, 'genre_id': southern.id)
+DrinkGenre.create('drink_id': crusta.id, 'genre_id': traditional_jazz.id)
+DrinkGenre.create('drink_id': crusta.id, 'genre_id': jazz.id)
+DrinkGenre.create('drink_id': crusta.id, 'genre_id': classical.id)
+DrinkGenre.create('drink_id': crusta.id, 'genre_id': soul_blues.id)
+DrinkGenre.create('drink_id': crusta.id, 'genre_id': cajun.id)
+DrinkGenre.create('drink_id': crusta.id, 'genre_id': new_orleans_jazz.id)
+DrinkGenre.create('drink_id': crusta.id, 'genre_id': dixieland.id)
+DrinkGenre.create('drink_id': crusta.id, 'genre_id': ragtime.id)
+DrinkIngredient.create('drink_id': crusta.id, 'ingredient_id': two_american_brandy.id)
+DrinkIngredient.create('drink_id': crusta.id, 'ingredient_id': maraschino_liqueur.id)
+DrinkIngredient.create('drink_id': crusta.id, 'ingredient_id': lemon_juice.id)
+DrinkIngredient.create('drink_id': crusta.id, 'ingredient_id': demerara_syrup.id)
+DrinkIngredient.create('drink_id': crusta.id, 'ingredient_id': pehchauds_bitters.id)
+DrinkIngredient.create('drink_id': crusta.id, 'ingredient_id': crushed_ice.id)
+DrinkTool.create('drink_id': crusta.id, 'tool_id': mixing_glass.id)
+DrinkTool.create('drink_id': crusta.id, 'tool_id': bar_spoon.id)
+DrinkTool.create('drink_id': crusta.id, 'tool_id': hawthorne_strainer.id)
+
+almond_crusta_image = File.open('app/assets/images/almondCrusta.jpg')
+almond_crusta = Drink.create('name': 'Almond Blossom Crusta', 'directions': 'Prepare the cocktail glass by rubbing the orange wedge around the outside rim and dipping the rim in superfine sugar to form a crust approximately one inch deep. Add all of the ingredients to mixing glass. Fill with ice. Shake vigorously with Boston shaker. Strain into the sugar crusted cocktail glass. Garnish with orange twist.',
+'tips': 'To achieve a proper rim on your cocktail, always begin with a non-chilled glass and coordinating citrus.',
+'image': almond_crusta_image)
+DrinkGenre.create('drink_id': almond_crusta.id, 'genre_id': neo_soul.id)
+DrinkGenre.create('drink_id': almond_crusta.id, 'genre_id': indie_rock.id)
+DrinkGenre.create('drink_id': almond_crusta.id, 'genre_id': new_americana.id)
+DrinkGenre.create('drink_id': almond_crusta.id, 'genre_id': indie_anthem_folk.id)
+DrinkGenre.create('drink_id': almond_crusta.id, 'genre_id': bluegrass.id)
+DrinkGenre.create('drink_id': almond_crusta.id, 'genre_id': folk_punk.id)
+DrinkGenre.create('drink_id': almond_crusta.id, 'genre_id': gypsy_punk.id)
+DrinkIngredient.create('drink_id': almond_crusta.id, 'ingredient_id': onefive_american_brandy.id)
+DrinkIngredient.create('drink_id': almond_crusta.id, 'ingredient_id': lemon_juice75.id)
+DrinkIngredient.create('drink_id': almond_crusta.id, 'ingredient_id': orgeat75.id)
+DrinkIngredient.create('drink_id': almond_crusta.id, 'ingredient_id': superfine_whole.id)
+DrinkIngredient.create('drink_id': almond_crusta.id, 'ingredient_id': orange_wedge_twist.id)
+DrinkTool.create('drink_id': almond_crusta.id, 'tool_id': boston_shaker.id)
+DrinkTool.create('drink_id': almond_crusta.id, 'tool_id': hawthorne_strainer.id)
+
 brandy_alexander_image = File.open('app/assets/images/brandyAlexander.jpg')
-brandy_alexander = Drink.create('name': 'Brandy Alexander', 'directions': '
-  Add all the ingredients to a mixing glass and fill with ice. Shake well with a
-  Boston shaker and strain into a chilled coupe. Garnish with freshly grated nutmeg.',
+brandy_alexander = Drink.create('name': 'Brandy Alexander', 'directions': 'Add all the ingredients to a mixing glass and fill with ice. Shake well with a Boston shaker and strain into a chilled coupe. Garnish with freshly grated nutmeg.',
 'image': brandy_alexander_image)
 DrinkGenre.create('drink_id': brandy_alexander.id, 'genre_id': r_b.id)
 DrinkGenre.create('drink_id': brandy_alexander.id, 'genre_id': hip_hop.id)
 DrinkGenre.create('drink_id': brandy_alexander.id, 'genre_id': rap.id)
 DrinkGenre.create('drink_id': brandy_alexander.id, 'genre_id': smooth_jazz.id)
 DrinkGenre.create('drink_id': brandy_alexander.id, 'genre_id': quiet_storm.id)
+DrinkGenre.create('drink_id': brandy_alexander.id, 'genre_id': new_jack_swing.id)
 DrinkIngredient.create('drink_id': brandy_alexander.id, 'ingredient_id': two_american_brandy.id)
 DrinkIngredient.create('drink_id': brandy_alexander.id, 'ingredient_id': creme_cacao.id)
 DrinkIngredient.create('drink_id': brandy_alexander.id, 'ingredient_id': cream.id)
@@ -150,16 +285,15 @@ DrinkIngredient.create('drink_id': death_in_afternoon.id, 'ingredient_id': lemon
 DrinkTool.create('drink_id': death_in_afternoon.id, 'tool_id': jigger.id)
 
 absinthe_frappe_image = File.open('app/assets/images/absintheFrappe.jpg')
-absinthe_frappe = Drink.create('name': 'Absinthe Frappe', 'directions': 'Pour the
-   absinthe, sugar, and the water into a blender. Blend for a moment to dissolve
-   the sugar and then, with the blender running, add 3 or 4 ice cubes through the
-   hole in the top, pausing between cubes to let them get crushed. Blend until smooth. Garnish with lemon/mint',
+absinthe_frappe = Drink.create('name': 'Absinthe Frappe', 'directions': 'Pour the absinthe, sugar, and the water into a blender. Blend for a moment to dissolve the sugar and then, with the blender running, add 3 or 4 ice cubes through the hole in the top, pausing between cubes to let them get crushed. Blend until smooth. Garnish with lemon/mint',
 'image': absinthe_frappe_image)
 DrinkGenre.create('drink_id': absinthe_frappe.id, 'genre_id': metal.id)
 DrinkGenre.create('drink_id': absinthe_frappe.id, 'genre_id': black_metal.id)
 DrinkGenre.create('drink_id': absinthe_frappe.id, 'genre_id': death_metal.id)
 DrinkGenre.create('drink_id': absinthe_frappe.id, 'genre_id': trap_francais.id)
 DrinkGenre.create('drink_id': absinthe_frappe.id, 'genre_id': metalcore.id)
+DrinkGenre.create('drink_id': absinthe_frappe.id, 'genre_id': house.id)
+DrinkGenre.create('drink_id': absinthe_frappe.id, 'genre_id': techno.id)
 DrinkIngredient.create('drink_id': absinthe_frappe.id, 'ingredient_id': mint.id)
 DrinkIngredient.create('drink_id': absinthe_frappe.id, 'ingredient_id': lemon.id)
 DrinkIngredient.create('drink_id': absinthe_frappe.id, 'ingredient_id': one_water.id)
@@ -168,9 +302,7 @@ DrinkIngredient.create('drink_id': absinthe_frappe.id, 'ingredient_id': absinthe
 DrinkTool.create('drink_id': absinthe_frappe.id, 'tool_id': blender.id)
 
 gt_image = File.open('app/assets/images/ginTonic.jpg')
-gin_and_tonic = Drink.create('name': 'Gin & Tonic', 'directions': 'Combine ingredients
-  in an ice filled highball glass or wine goblet. Garnish with a lime, Juniper Berries,
-  Grapefruit. Get creative with the garnish. Also try seasonal berries, cucumber or Rosemary',
+gin_and_tonic = Drink.create('name': 'Gin & Tonic', 'directions': 'Combine ingredients in an ice filled highball glass or wine goblet. Garnish with a lime, Juniper Berries, Grapefruit. Get creative with the garnish. Also try seasonal berries, cucumber or Rosemary',
 'image': gt_image)
 DrinkGenre.create('drink_id': gin_and_tonic.id, 'genre_id': pop.id)
 DrinkGenre.create('drink_id': gin_and_tonic.id, 'genre_id': punk.id)
@@ -182,11 +314,7 @@ DrinkIngredient.create('drink_id': gin_and_tonic.id, 'ingredient_id': american_g
 DrinkIngredient.create('drink_id': gin_and_tonic.id, 'ingredient_id': four_tonic.id)
 
 rs_image = File.open('app/assets/images/redSangria.jpg')
-red_sangria = Drink.create('name': 'Red Sangria', 'directions': 'Combine brandy
-   & honey in a large pitcher and stir until honey is dissolved. Add fruit and
-   mash gently with the back of a wooden spoon to release juices. Add wine and stir.
-   Cover and refrigerate for at least 8 hours and up to 48 hours. Top with soda & mint.
-   Serve in ice-filled glasses.','image': rs_image)
+red_sangria = Drink.create('name': 'Red Sangria', 'directions': 'Combine brandy & honey in a large pitcher and stir until honey is dissolved. Add fruit and mash gently with the back of a wooden spoon to release juices. Add wine and stir. Cover and refrigerate for at least 8 hours and up to 48 hours. Top with soda & mint. Serve in ice-filled glasses.','image': rs_image)
 DrinkGenre.create('drink_id': red_sangria.id, 'genre_id': salsa.id)
 DrinkGenre.create('drink_id': red_sangria.id, 'genre_id': folk.id)
 DrinkGenre.create('drink_id': red_sangria.id, 'genre_id': regional_mexican.id)
