@@ -139,7 +139,17 @@ shoegaze = Genre.create('name': 'shoegaze')
 british_pop = Genre.create('name': 'british pop')
 chicago_soul = Genre.create('name': 'chicago soul')
 chicago_hip_hop = Genre.create('name': 'chicago hip hop')
-
+alt_90s = Genre.create('name': '90s Alternative')
+beach_music = Genre.create('name': 'beach music')
+ukulele = Genre.create('name': 'ukulele')
+latin_alternative = Genre.create('name': 'latin alternative')
+reggaeton = Genre.create('name': 'reggaeton')
+reggae_fusion = Genre.create('name': 'reggae fusion')
+caribbean = Genre.create('name': 'caribbean')
+tropical_house = Genre.create('name': 'tropical house')
+dirty_south_rap = Genre.create('name': 'dirty south rap')
+brostep = Genre.create('name': 'brostep')
+scottish = Genre.create('name': 'scottish')
 
 
 Artist.destroy_all
@@ -178,9 +188,10 @@ collins_glass = Tool.create('name': 'Collins Glass')
 glass = Tool.create('name': 'Glass')
 pitcher = Tool.create('name': 'Pitcher')
 knife = Tool.create('name': 'Knife')
-
-
-
+strainer = Tool.create('name': 'Strainer')
+saucepan = Tool.create('name': 'Saucepan')
+large_bowl = Tool.create('name': 'Large bowl')
+jelly_bag = Tool.create('name': 'Jelly bag')
 
 
 Ingredient.destroy_all
@@ -308,31 +319,144 @@ onefive_vermouth = Ingredient.create('name': 'French Vermouth', 'amount': 1.5, '
 two_anisette = Ingredient.create('name': 'Anisette', 'amount': 2, 'unit': 'dashes')
 one_destillare = Ingredient.create('name': 'Destillaré Orange Curaçao', 'amount': 1, 'unit': 'oz')
 champagne = Ingredient.create('name': 'Champagne')
-powered_sugar = Ingredient.create('name': 'One bar spoon full of powered sugar')
+powdered_sugar = Ingredient.create('name': 'One bar spoon full of powered sugar')
 maraschino_liqueur75 = Ingredient.create('name': 'Maraschino Liqueur', 'amount': 0.75, 'unit': 'oz')
 creme_violette = Ingredient.create('name': 'Crème de violette or Crème Yvette', 'amount': 0.25, 'unit': 'oz')
 roses_lime75 = Ingredient.create('name': "Rose's lime juice", 'amount': 0.75, 'unit': 'oz')
 simple_syrup75 = Ingredient.create('name': "Simple Syrup", 'amount': 0.75, 'unit': 'oz')
 fresh_mint = Ingredient.create('name': "Fresh Mint Leaf", 'amount': 1)
+falernum25 = Ingredient.create('name': "Falernum", 'amount': 0.25, 'unit': 'oz')
+half_orgeat = Ingredient.create('name': "Orgeat", 'amount': 0.50, 'unit': 'oz')
+half_passionfruit = Ingredient.create('name': "Passionfruit syrup", 'amount': 0.5, 'unit': 'oz')
+half_aged_rum = Ingredient.create('name': "Aged rum", 'amount': 0.5, 'unit': 'oz')
+one_gin = Ingredient.create('name': "Copper & Kings American Dry Gin", 'amount': 1, 'unit': 'oz')
+ginger_beer = Ingredient.create('name': "Ginger beer")
+egg = Ingredient.create('name': "1 Egg")
+one_port_wine = Ingredient.create('name': "Port wine", 'amount': 1, 'unit': 'oz')
+half_brandy = Ingredient.create('name': "Copper & Kings American Craft Brandy", 'amount': 0.5, 'unit': 'oz')
+two_craftwerk = Ingredient.create('name': "Sierra Nevada Chocolate Cherry Stout Brandy", 'amount': 2, 'unit': 'oz')
+dolin_rouge = Ingredient.create('name': "Dolin Rouge", 'amount': 0.75, 'unit': 'oz')
+luxardo = Ingredient.create('name': "Luxardo maraschino cherry liquer", 'amount': 0.25, 'unit': 'oz')
+six_brandy = Ingredient.create('name': "Copper & Kings American Craft Brandy ", 'amount': 6, 'unit': 'cup')
+el_lemons = Ingredient.create('name': "Lemons", 'amount': 11)
+two_lemon_juice = Ingredient.create('name': "Lemon Juice", 'amount': 2, 'unit': 'cups')
+four_spring = Ingredient.create('name': "Spring Water", 'amount': 4, 'unit': 'cups')
+halflb_sugar = Ingredient.create('name': "Sugar", 'amount': 0.5, 'unit': 'lb')
+three_milk = Ingredient.create('name': "Whole Milk", 'amount': 3, 'unit': 'cups')
+
 
 
 
 Drink.destroy_all
 
-southside_image = File.open('app/assets/images/southside.jpg')
-southside = Drink.create('name': 'Southside', 'directions': 'Combine ingredients in shaker. Add ice and shake. Strain into a chilled coupe. Garnish with one mint leaf, smacked to release the oils, floating on top of the cocktail.',
-'image': southside_image)
-DrinkGenre.create('drink_id': southside.id, 'genre_id': rap.id)
-DrinkGenre.create('drink_id': southside.id, 'genre_id': underground_hip_hop.id)
-DrinkGenre.create('drink_id': southside.id, 'genre_id': chicago_soul.id)
-DrinkGenre.create('drink_id': southside.id, 'genre_id': chicago_hip_hop.id)
-DrinkGenre.create('drink_id': southside.id, 'genre_id': hip_hop.id)
-DrinkIngredient.create('drink_id': southside.id, 'ingredient_id': american_gin.id)
-DrinkIngredient.create('drink_id': southside.id, 'ingredient_id': one_lime.id)
-DrinkIngredient.create('drink_id': southside.id, 'ingredient_id': simple_syrup75.id)
-DrinkIngredient.create('drink_id': southside.id, 'ingredient_id': sprig_mint.id)
-DrinkTool.create('drink_id': southside.id, 'tool_id': boston_shaker.id)
-DrinkTool.create('drink_id': southside.id, 'tool_id': hawthorne_strainer.id)
+milk_punch_image = File.open('app/assets/images/milkPunch.jpg')
+milk_punch = Drink.create('name': 'Milk Punch', 'directions': 'Zest 11 lemons. Squeeze 2 cups of lemon juice and put aside. Steep the lemon zest in the brandy for 24 hours. Strain out the lemon zest. Add 4 cups spring water, 1 freshly grated nutmeg, 2 cups lemon juice and 1 ⅛ cups of sugar to the brandy. Stir until the sugar dissolves. Bring 3 cups whole milk to a boil. As soon as the milk boils, add the hot milk to the brandy and stir. The heat, lemon juice and alcohol will begin to curdle the milk. Let the punch stand for 2 hours.Strain the punch through a jelly bag (or pillow case) until clear. Serve cold.',
+'image': milk_punch_image)
+DrinkGenre.create('drink_id': milk_punch.id, 'genre_id': reggaeton.id)
+DrinkGenre.create('drink_id': milk_punch.id, 'genre_id': scottish.id)
+DrinkIngredient.create('drink_id': milk_punch.id, 'ingredient_id': six_brandy.id)
+DrinkIngredient.create('drink_id': milk_punch.id, 'ingredient_id': el_lemons.id)
+DrinkIngredient.create('drink_id': milk_punch.id, 'ingredient_id': two_lemon_juice.id)
+DrinkIngredient.create('drink_id': milk_punch.id, 'ingredient_id': four_spring.id)
+DrinkIngredient.create('drink_id': milk_punch.id, 'ingredient_id': grated_nutmeg.id)
+DrinkIngredient.create('drink_id': milk_punch.id, 'ingredient_id': halflb_sugar.id)
+DrinkIngredient.create('drink_id': milk_punch.id, 'ingredient_id': three_milk.id)
+DrinkTool.create('drink_id': milk_punch.id, 'tool_id': zester.id)
+DrinkTool.create('drink_id': milk_punch.id, 'tool_id': saucepan.id)
+DrinkTool.create('drink_id': milk_punch.id, 'tool_id': large_bowl.id)
+DrinkTool.create('drink_id': milk_punch.id, 'tool_id': jelly_bag.id)
+#
+# craftwerk_manhattan_image = File.open('app/assets/images/craftwerkManhattan.jpg')
+# craftwerk_manhattan = Drink.create('name': 'Cr&ftwerk Manhattan', 'directions': 'Add Ingredients To Mixing Glass. Fill With Ice. Stir and strain into a chilled cocktail glass. Garnish with an orange twist.',
+# 'image': craftwerk_manhattan_image)
+# DrinkGenre.create('drink_id': craftwerk_manhattan.id, 'genre_id': brostep.id)
+# DrinkIngredient.create('drink_id': craftwerk_manhattan.id, 'ingredient_id': two_craftwerk.id)
+# DrinkIngredient.create('drink_id': craftwerk_manhattan.id, 'ingredient_id': dolin_rouge.id)
+# DrinkIngredient.create('drink_id': craftwerk_manhattan.id, 'ingredient_id': luxardo.id)
+# DrinkIngredient.create('drink_id': craftwerk_manhattan.id, 'ingredient_id': three_angs.id)
+# DrinkTool.create('drink_id': craftwerk_manhattan.id, 'tool_id': mixing_glass.id)
+# DrinkTool.create('drink_id': craftwerk_manhattan.id, 'tool_id': bar_spoon.id)
+# DrinkTool.create('drink_id': craftwerk_manhattan.id, 'tool_id': julep_strainer.id)
+
+# coffee_cocktail_image = File.open('app/assets/images/coffeeCocktail.jpg')
+# coffee_cocktail = Drink.create('name': 'Coffee Cocktail', 'directions': 'Break egg into shaker. Add powdered sugar, port wine, brandy and ice. Shake well and strain into a chilled coupe.',
+# 'image': coffee_cocktail_image)
+# DrinkGenre.create('drink_id': coffee_cocktail.id, 'genre_id': hip_hop.id)
+# DrinkGenre.create('drink_id': coffee_cocktail.id, 'genre_id': underground_hip_hop.id)
+# DrinkGenre.create('drink_id': coffee_cocktail.id, 'genre_id': dirty_south_rap.id)
+# DrinkIngredient.create('drink_id': coffee_cocktail.id, 'ingredient_id': half_brandy.id)
+# DrinkIngredient.create('drink_id': coffee_cocktail.id, 'ingredient_id': egg.id)
+# DrinkIngredient.create('drink_id': coffee_cocktail.id, 'ingredient_id': powdered_sugar.id)
+# DrinkIngredient.create('drink_id': coffee_cocktail.id, 'ingredient_id': one_port_wine.id)
+# DrinkTool.create('drink_id': coffee_cocktail.id, 'tool_id': boston_shaker.id)
+# DrinkTool.create('drink_id': coffee_cocktail.id, 'tool_id': strainer.id)
+#
+# suffering_bastard_image = File.open('app/assets/images/sufferingBastard.jpg')
+# suffering_bastard = Drink.create('name': 'Suffering Bastard', 'directions': 'Combine ingredients in shaker. Add ice and shake. Strain into a glass with ice. Top with ginger beer. Garnish with lime.',
+# 'image': suffering_bastard_image)
+# DrinkGenre.create('drink_id': suffering_bastard.id, 'genre_id': tropical.id)
+# DrinkGenre.create('drink_id': suffering_bastard.id, 'genre_id': reggae_fusion.id)
+# DrinkGenre.create('drink_id': suffering_bastard.id, 'genre_id': reggaeton.id)
+# DrinkGenre.create('drink_id': suffering_bastard.id, 'genre_id': caribbean.id)
+# DrinkGenre.create('drink_id': suffering_bastard.id, 'genre_id': tropical_house.id)
+# DrinkGenre.create('drink_id': suffering_bastard.id, 'genre_id': rap.id)
+# DrinkGenre.create('drink_id': suffering_bastard.id, 'genre_id': trap_music.id)
+# DrinkGenre.create('drink_id': suffering_bastard.id, 'genre_id': beach_music.id)
+# DrinkGenre.create('drink_id': suffering_bastard.id, 'genre_id': dirty_south_rap.id)
+# DrinkIngredient.create('drink_id': suffering_bastard.id, 'ingredient_id': one_american_brandy.id)
+# DrinkIngredient.create('drink_id': suffering_bastard.id, 'ingredient_id': one_gin.id)
+# DrinkIngredient.create('drink_id': suffering_bastard.id, 'ingredient_id': lg_lime.id)
+# DrinkIngredient.create('drink_id': suffering_bastard.id, 'ingredient_id': half_simple_syrup.id)
+# DrinkIngredient.create('drink_id': suffering_bastard.id, 'ingredient_id': one_ang.id)
+# DrinkIngredient.create('drink_id': suffering_bastard.id, 'ingredient_id': ginger_beer.id)
+# DrinkIngredient.create('drink_id': suffering_bastard.id, 'ingredient_id': half_orgeat.id)
+# DrinkTool.create('drink_id': suffering_bastard.id, 'tool_id': boston_shaker.id)
+# DrinkTool.create('drink_id': suffering_bastard.id, 'tool_id': hawthorne_strainer.id)
+#
+# scorpion_image = File.open('app/assets/images/scorpion.jpg')
+# scorpion = Drink.create('name': 'Scorpion', 'directions': 'Combine ingredients in shaker. Add ice and shake. Strain into a glass with ice. Garnish with citrus and mint.',
+# 'image': scorpion_image)
+# DrinkGenre.create('drink_id': scorpion.id, 'genre_id': reggaeton.id)
+# DrinkGenre.create('drink_id': scorpion.id, 'genre_id': latin_alternative.id)
+# DrinkIngredient.create('drink_id': scorpion.id, 'ingredient_id': one_american_brandy.id)
+# DrinkIngredient.create('drink_id': scorpion.id, 'ingredient_id': half_gin.id)
+# DrinkIngredient.create('drink_id': scorpion.id, 'ingredient_id': half_aged_rum.id)
+# DrinkIngredient.create('drink_id': scorpion.id, 'ingredient_id': one_orange_juice.id)
+# DrinkIngredient.create('drink_id': scorpion.id, 'ingredient_id': lg_lime.id)
+# DrinkIngredient.create('drink_id': scorpion.id, 'ingredient_id': simple_syrup75.id)
+# DrinkIngredient.create('drink_id': scorpion.id, 'ingredient_id': half_orgeat.id)
+# DrinkTool.create('drink_id': scorpion.id, 'tool_id': boston_shaker.id)
+# DrinkTool.create('drink_id': scorpion.id, 'tool_id': hawthorne_strainer.id)
+#
+# saturn_image = File.open('app/assets/images/saturn.jpg')
+# saturn = Drink.create('name': 'Saturn', 'directions': 'Add ingredients with ice to shaker, shake and pour in a tiki glass with crushed ice. Garnish with a orchid and lemon wheel',
+# 'image': saturn_image)
+# DrinkGenre.create('drink_id': saturn.id, 'genre_id': alt_90s.id)
+# DrinkGenre.create('drink_id': saturn.id, 'genre_id': tropical.id)
+# DrinkGenre.create('drink_id': saturn.id, 'genre_id': beach_music.id)
+# DrinkGenre.create('drink_id': saturn.id, 'genre_id': ukulele.id)
+# DrinkIngredient.create('drink_id': saturn.id, 'ingredient_id': onefive_american_gin.id)
+# DrinkIngredient.create('drink_id': saturn.id, 'ingredient_id': lemon_juice75.id)
+# DrinkIngredient.create('drink_id': saturn.id, 'ingredient_id': falernum25.id)
+# DrinkIngredient.create('drink_id': saturn.id, 'ingredient_id': half_orgeat.id)
+# DrinkIngredient.create('drink_id': saturn.id, 'ingredient_id': half_passionfruit.id)
+# DrinkTool.create('drink_id': saturn.id, 'tool_id': boston_shaker.id)
+# DrinkTool.create('drink_id': saturn.id, 'tool_id': hawthorne_strainer.id)
+#
+# southside_image = File.open('app/assets/images/southside.jpg')
+# southside = Drink.create('name': 'Southside', 'directions': 'Combine ingredients in shaker. Add ice and shake. Strain into a chilled coupe. Garnish with one mint leaf, smacked to release the oils, floating on top of the cocktail.',
+# 'image': southside_image)
+# DrinkGenre.create('drink_id': southside.id, 'genre_id': rap.id)
+# DrinkGenre.create('drink_id': southside.id, 'genre_id': underground_hip_hop.id)
+# DrinkGenre.create('drink_id': southside.id, 'genre_id': chicago_soul.id)
+# DrinkGenre.create('drink_id': southside.id, 'genre_id': chicago_hip_hop.id)
+# DrinkGenre.create('drink_id': southside.id, 'genre_id': hip_hop.id)
+# DrinkIngredient.create('drink_id': southside.id, 'ingredient_id': american_gin.id)
+# DrinkIngredient.create('drink_id': southside.id, 'ingredient_id': one_lime.id)
+# DrinkIngredient.create('drink_id': southside.id, 'ingredient_id': simple_syrup75.id)
+# DrinkIngredient.create('drink_id': southside.id, 'ingredient_id': sprig_mint.id)
+# DrinkTool.create('drink_id': southside.id, 'tool_id': boston_shaker.id)
+# DrinkTool.create('drink_id': southside.id, 'tool_id': hawthorne_strainer.id)
 #
 # gimlet_image = File.open('app/assets/images/gimlet.jpg')
 # gimlet = Drink.create('name': 'Gimlet', 'directions': 'Combine the gin and lime juice with ice in a shaker and shake until chilled. Strain into a chilled glass and garnish.',
@@ -430,7 +554,7 @@ DrinkTool.create('drink_id': southside.id, 'tool_id': hawthorne_strainer.id)
 # DrinkIngredient.create('drink_id': singapore_sling.id, 'ingredient_id': soda_water.id)
 # DrinkTool.create('drink_id': singapore_sling.id, 'tool_id': boston_shaker.id)
 # DrinkTool.create('drink_id': singapore_sling.id, 'tool_id': hawthorne_strainer.id)
-
+#
 #
 # japanese_image = File.open('app/assets/images/japanese.jpg')
 # japanese = Drink.create('name': 'Japanese Cocktail', 'directions': 'Fill the mixing glass ⅓ full of ice, add ingredients and stir with spoon. Strain into chilled coupe. Garnish with a lemon peel.',
@@ -449,7 +573,7 @@ DrinkTool.create('drink_id': southside.id, 'tool_id': hawthorne_strainer.id)
 # DrinkTool.create('drink_id': japanese.id, 'tool_id': bar_spoon.id)
 # DrinkTool.create('drink_id': japanese.id, 'tool_id': knife.id)
 #
-# marconi_wireless_image = File.open('app/assets/images/marconieWireless.jpg')
+# marconi_wireless_image = File.open('app/assets/images/marconiWireless.jpg')
 # marconi_wireless = Drink.create('name': 'The Marconi Wireless', 'directions': 'Stir, strain into a chilled cocktail glass.  Garnish with either a cherry or a lemon peel.',
 # 'image': marconi_wireless_image)
 # DrinkGenre.create('drink_id': marconi_wireless.id, 'genre_id': modern_rock.id)
@@ -531,7 +655,7 @@ DrinkTool.create('drink_id': southside.id, 'tool_id': hawthorne_strainer.id)
 # DrinkTool.create('drink_id': brandy_sour.id, 'tool_id': boston_shaker.id)
 # DrinkTool.create('drink_id': brandy_sour.id, 'tool_id': hawthorne_strainer.id)
 # DrinkTool.create('drink_id': brandy_sour.id, 'tool_id': straw.id)
-
+#
 # sazerac_image = File.open('app/assets/images/sazerac.jpg')
 # sazerac = Drink.create('name': 'Sazerac', 'directions': 'Muddle the sugar and bitters, then add the Brandy and ice. Stir and strain into a chilled, Absinthe rinsed rocks glass. Twist a Lemon Peel over the surface and discard.',
 # 'image': sazerac_image)
@@ -552,8 +676,8 @@ DrinkTool.create('drink_id': southside.id, 'tool_id': hawthorne_strainer.id)
 # DrinkTool.create('drink_id': sazerac.id, 'tool_id': mixing_glass.id)
 # DrinkTool.create('drink_id': sazerac.id, 'tool_id': bar_spoon.id)
 # DrinkTool.create('drink_id': sazerac.id, 'tool_id': strainer.id)
-
-
+#
+#
 # mule_image = File.open('app/assets/images/mule.jpg')
 # mule = Drink.create('name': 'Mule', 'directions': 'Combine all ingredients in highball glass, add ice. Garnish with lime wedge.',
 # 'image': mule_image)
@@ -570,7 +694,7 @@ DrinkTool.create('drink_id': southside.id, 'tool_id': hawthorne_strainer.id)
 # DrinkIngredient.create('drink_id': mule.id, 'ingredient_id': lime_wedge.id)
 # DrinkTool.create('drink_id': mule.id, 'tool_id': jigger.id)
 # DrinkTool.create('drink_id': mule.id, 'tool_id': highball_glass.id)
-
+#
 # metropolitan_image = File.open('app/assets/images/metropolitan.jpg')
 # metropolitan = Drink.create('name': 'Metropolitan', 'directions': 'Combine ingredients in mixing glass. Add ice. Stir until well chilled. Strain into cocktail glass. garnish with a lemon twist.',
 # 'image': metropolitan_image)
@@ -584,7 +708,7 @@ DrinkTool.create('drink_id': southside.id, 'tool_id': hawthorne_strainer.id)
 # DrinkTool.create('drink_id': metropolitan.id, 'tool_id': mixing_glass.id)
 # DrinkTool.create('drink_id': metropolitan.id, 'tool_id': bar_spoon.id)
 # DrinkTool.create('drink_id': metropolitan.id, 'tool_id': julep_strainer.id)
-
+#
 # margarita_image = File.open('app/assets/images/margarita.jpg')
 # margarita = Drink.create('name': 'Margarita', 'directions': 'Combine ingredients in shaker. Add ice & shake. Strain into a salt rimmed rocks glass. Garnish with a lime wheel.',
 # 'image': margarita_image)
@@ -597,7 +721,7 @@ DrinkTool.create('drink_id': southside.id, 'tool_id': hawthorne_strainer.id)
 # DrinkIngredient.create('drink_id': margarita.id, 'ingredient_id': quarter_simple_syrup.id)
 # DrinkTool.create('drink_id': margarita.id, 'tool_id': boston_shaker.id)
 # DrinkTool.create('drink_id': margarita.id, 'tool_id': hawthorne_strainer.id)
-
+#
 # julep_image = File.open('app/assets/images/julep.jpg')
 # julep = Drink.create('name': 'Julep', 'directions': 'Combine all ingredients in mixing glass. Muddle mint leaves. Strain liquid into glass, fill with crushed ice to heaping. Garnish with mint leaves.',
 # 'image': julep_image)
@@ -614,8 +738,8 @@ DrinkTool.create('drink_id': southside.id, 'tool_id': hawthorne_strainer.id)
 # DrinkTool.create('drink_id': julep.id, 'tool_id': julep_strainer.id)
 # DrinkTool.create('drink_id': julep.id, 'tool_id': lewis_bag.id)
 # DrinkTool.create('drink_id': julep.id, 'tool_id': mallet.id)
-
-
+#
+#
 # jack_rose_image = File.open('app/assets/images/jackRose.jpg')
 # jack_rose = Drink.create('name': 'Jack Rose', 'directions': 'Pour ingredients into a mixing glass and fill with ice. Shake well with a Boston shaker. Strain into a chilled coupe, garnish with a twist of lemon.',
 # 'image': jack_rose_image, 'tips': 'Heat 2 cups each fresh pomegranate juice and unbleached sugar with 2 oz. pomegranate molasses and 1 tsp. orange blossom water for simple, perfect homemade grenadine.')
@@ -629,7 +753,7 @@ DrinkTool.create('drink_id': southside.id, 'tool_id': hawthorne_strainer.id)
 # DrinkIngredient.create('drink_id': jack_rose.id, 'ingredient_id': lg_lime.id)
 # DrinkTool.create('drink_id': jack_rose.id, 'tool_id': boston_shaker.id)
 # DrinkTool.create('drink_id': jack_rose.id, 'tool_id': hawthorne_strainer.id)
-
+#
 # horses_neck_image = File.open('app/assets/images/horsesNeck.jpg')
 # horses_neck = Drink.create('name': 'Horses Neck', 'directions': 'Combine brandy and ginger beer in highball glass. Add ice. Garnish with generously long lemon peel. Add dash of bitters on top.',
 # 'image': horses_neck_image, 'tips': 'A potato peeler or “y” peeler will work best to achieve the long lemon peel garnish.')
@@ -647,7 +771,7 @@ DrinkTool.create('drink_id': southside.id, 'tool_id': hawthorne_strainer.id)
 # DrinkTool.create('drink_id': horses_neck.id, 'tool_id': peeler.id)
 # DrinkTool.create('drink_id': horses_neck.id, 'tool_id': jigger.id)
 # DrinkTool.create('drink_id': horses_neck.id, 'tool_id': highball_glass.id)
-
+#
 # harvard_image = File.open('app/assets/images/harvard.jpg')
 # harvard = Drink.create('name': 'Harvard', 'directions': 'Combine brandy, vermouth and bitters in mixing glass. Fill with ice. Stir until well chilled. Strain into cocktail glass and top with cold club soda.',
 # 'image': harvard_image)
@@ -665,7 +789,7 @@ DrinkTool.create('drink_id': southside.id, 'tool_id': hawthorne_strainer.id)
 # DrinkTool.create('drink_id': harvard.id, 'tool_id': mixing_glass.id)
 # DrinkTool.create('drink_id': harvard.id, 'tool_id': bar_spoon.id)
 # DrinkTool.create('drink_id': harvard.id, 'tool_id': julep_strainer.id)
-
+#
 # fish_house_punch_image = File.open('app/assets/images/fishHousePunch.jpg')
 # fish_house_punch = Drink.create('name': 'Fish House Punch', 'directions': 'In a large bowl, add simple syrup and lemon peels, rub together to release the citrus oils into the sugar. Allow infusing for at least 30 minutes. Strain off the peels. Add brandy, rum, lemon juice and peach liqueur. Stir to mix. Add block of ice to chill. Allow thirty minutes for dilution. Garnish with lemon wheels and ladle into individual glasses. (serves 2-4)',
 # 'image': fish_house_punch_image, 'tips': 'For easy frozen ice blocks at home, fill a 16 oz. plastic storage container with water and freeze overnight. Just before serving, remove the container from the freezer and leave upside-down for a couple minutes. The ice cube will slide right out.')
@@ -710,7 +834,7 @@ DrinkTool.create('drink_id': southside.id, 'tool_id': hawthorne_strainer.id)
 # DrinkIngredient.create('drink_id': chrysanthemum.id, 'ingredient_id': orange_peel.id)
 # DrinkTool.create('drink_id': chrysanthemum.id, 'tool_id': boston_shaker.id)
 # DrinkTool.create('drink_id': chrysanthemum.id, 'tool_id': hawthorne_strainer.id)
-
+#
 # corpse_reviver_image = File.open('app/assets/images/corpseReviver.jpg')
 # corpse_reviver = Drink.create('name': 'Corpse Reviver', 'directions': 'Combine brandy, Apple brandy & sweet vermouth In Mixing glass. Stir with ice. Strain into a chilled cocktail glass.',
 # 'image': corpse_reviver_image)
