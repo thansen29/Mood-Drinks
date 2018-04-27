@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180418231227) do
+ActiveRecord::Schema.define(version: 20180427020750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20180418231227) do
     t.integer "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_artist_genres_on_artist_id"
+    t.index ["genre_id"], name: "index_artist_genres_on_genre_id"
   end
 
   create_table "artists", force: :cascade do |t|
@@ -33,6 +35,8 @@ ActiveRecord::Schema.define(version: 20180418231227) do
     t.integer "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["drink_id"], name: "index_drink_genres_on_drink_id"
+    t.index ["genre_id"], name: "index_drink_genres_on_genre_id"
   end
 
   create_table "drink_ingredients", force: :cascade do |t|
@@ -40,6 +44,8 @@ ActiveRecord::Schema.define(version: 20180418231227) do
     t.integer "ingredient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["drink_id"], name: "index_drink_ingredients_on_drink_id"
+    t.index ["ingredient_id"], name: "index_drink_ingredients_on_ingredient_id"
   end
 
   create_table "drink_tools", force: :cascade do |t|
@@ -47,6 +53,8 @@ ActiveRecord::Schema.define(version: 20180418231227) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "tool_id"
+    t.index ["drink_id"], name: "index_drink_tools_on_drink_id"
+    t.index ["tool_id"], name: "index_drink_tools_on_tool_id"
   end
 
   create_table "drinks", force: :cascade do |t|
