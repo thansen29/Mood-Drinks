@@ -3,7 +3,6 @@ import { searchTunes, fetchGenres } from '../../actions/search_actions';
 import HeaderComponent from './header';
 
 const mapStateToProps = state => {
-  debugger
   return {
     searchResults: state.songs.searchResults
   }

@@ -8,7 +8,8 @@ class Header extends React.Component {
 
     this.state = {
       searchField: '',
-      searchResults: []
+      searchResults: [],
+      selected: false
     };
 
     this.timer = null;
@@ -40,7 +41,7 @@ class Header extends React.Component {
   handleSelection(item) {
     return () => {
       const details = `${item.trackName} by ${item.artistName}`;
-      this.setState({ searchField: details, searchResults: [] });
+      this.setState({ searchField: details, searchResults: [], selected: true });
     }
   }
 
@@ -85,10 +86,19 @@ class Header extends React.Component {
           className="container"
           onSubmit={ this.fetchGenres }>
 
-          <input
-            className="search-field"
-            value={ this.state.searchField }
-            onChange={ this.handleChange('searchField') } />
+          <div className="input-wrapper">
+            <input
+              className="search-field"
+              value={ this.state.searchField }
+              onChange={ this.handleChange('searchField') } />
+
+            <button
+              className={ this.state.selected ? "submit-button" : "submit-button-disabled" }
+              disabled={ !this.state.selected }>
+              Find me drinks!
+            </button>
+            
+          </div>
 
           <div className="results-wrapper">
             <ul className="list-ul">
@@ -96,11 +106,6 @@ class Header extends React.Component {
             </ul>
           </div>
 
-          <button
-            className="submit-button">
-            Find me drinks!
-
-          </button>
         </form>
 
       </header>
