@@ -37,9 +37,19 @@ export const fetchGenres = artist => dispatch => {
       const genres = response.data.genres;
       console.log(genres);
       dispatch(receiveGenres(genres));
+      if (response.data.cache) {
+        cacheData(artist, genres);
+      }
     },
     (error) => {
       debugger
     }
   );
+}
+
+const cacheData = (artist, genres) => {
+  axios.post('search/cache', {
+    artist,
+    genres
+  })
 }

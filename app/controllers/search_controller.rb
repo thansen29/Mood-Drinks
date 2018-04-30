@@ -1,11 +1,6 @@
 require 'rest-client'
 
 class SearchController < ApplicationController
-
-        # thr yields []
-      # empty gives 400
-      # so dont let search unless some form of data is entered
-      # can even not let search unless they select an item
   def search
     token = self.authorize()
     artist = params['artist']
@@ -14,34 +9,32 @@ class SearchController < ApplicationController
     searched_artist = Artist.find_by(name: artist) 
     # if it does, just return their genres
     if searched_artist 
-      render json: { genres: searched_artist.genres.pluck(:name) }
+      render json: { genres: searched_artist.genres.pluck(:name), cache: false }
       return;
     else 
-      debugger
-      # create a new artist row
-      new_artist = Artist.create(name: artist)
-
-      
+      # # create a new artist row
+      # new_artist = Artist.create(name: artist)
       genres_query = RestClient.get("https://api.spotify.com/v1/search?q=#{artist}&type=artist",
                               {"Authorization" => "Bearer #{token}"})
   
       @genres = JSON.parse(genres_query.body)['artists']['items'][0]['genres']
 
-      @genres.each do |genre|
-        # see if genre already exists
-        searched_genre = Genre.find_by(name: genre)
-        if searched_genre
-          # create the new row with that genre and the new artist
-          ArtistGenre.create(genre_id: searched_genre.id, artist_id: new_artist.id)
-        else 
-          # create new genre, create row with that genre and new artist
-          new_genre = Genre.create(name: genre)
-          ArtistGenre.create(genre_id: new_genre.id, artist_id: new_artist.id)          
-        end 
-      end 
+      render json: { genres: @genres, cache: true }
+
+      # @genres.each do |genre|
+      #   # see if genre already exists
+      #   searched_genre = Genre.find_by(name: genre)
+      #   if searched_genre
+      #     # create the new row with that genre and the new artist
+      #     ArtistGenre.create(genre_id: searched_genre.id, artist_id: new_artist.id)
+      #   else 
+      #     # create new genre, create row with that genre and new artist
+      #     new_genre = Genre.create(name: genre)
+      #     ArtistGenre.create(genre_id: new_genre.id, artist_id: new_artist.id)          
+      #   end 
+      # end 
     end 
 
-    render json: { genres: @genres }
   end
 
   def authorize
@@ -58,4 +51,25 @@ class SearchController < ApplicationController
 
     return token
   end
-end
+
+  def cache_info
+    artist = params['artist']
+    # create a new artist row
+    new_artist = Artist.create(name: artist)
+
+    @genres = params['genres']
+
+    @genres.each do |genre|
+      # see if genre already exists
+      searched_genre = Genre.find_by(name: genre)
+      if searched_genre
+        # create the new row with that genre and the new artist
+        ArtistGenre.create(genre_id: searched_genre.id, artist_id: new_artist.id)
+      else 
+        # create new genre, create row with that genre and new artist
+        new_genre = Genre.create(name: genre)
+        ArtistGenre.create(genre_id: new_genre.id, artist_id: new_artist.id)          
+      end 
+    end
+  end
+end 
