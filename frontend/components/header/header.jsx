@@ -16,6 +16,7 @@ class Header extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.triggerSearch = this.triggerSearch.bind(this);
     this.handleSelection = this.handleSelection.bind(this);
+    this.fetchGenres = this.fetchGenres.bind(this);
   }
 
   handleChange(field) {
@@ -41,6 +42,12 @@ class Header extends React.Component {
       const details = `${item.trackName} by ${item.artistName}`;
       this.setState({ searchField: details, searchResults: [] });
     }
+  }
+
+  fetchGenres() {
+    // debugger
+    const artist = this.state.searchField.split('by ')[1];
+    this.props.fetchGenres(artist)
   }
 
   render() {
@@ -75,7 +82,8 @@ class Header extends React.Component {
         </label>
 
         <form
-          className="container">
+          className="container"
+          onSubmit={ this.fetchGenres }>
 
           <input
             className="search-field"
@@ -88,6 +96,11 @@ class Header extends React.Component {
             </ul>
           </div>
 
+          <button
+            className="submit-button">
+            Find me drinks!
+
+          </button>
         </form>
 
       </header>
