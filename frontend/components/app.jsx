@@ -1,6 +1,8 @@
 import React from 'react';
 import Navbar from './navbar/navbar';
 import HeaderContainer from './header/header_container';
+import DrinksIndex from './drinks/drinks_container';
+
 
 class App extends React.Component {
   render() {
@@ -9,6 +11,8 @@ class App extends React.Component {
         <Navbar />
 
         <HeaderContainer />
+
+        <DrinksIndex />
       </section>
     );
   }

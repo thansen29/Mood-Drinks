@@ -52,4 +52,9 @@ const cacheData = (artist, genres) => {
     artist,
     genres
   })
+  .catch(
+    (error) => {
+      console.log(error);
+    }
+  )
 }
