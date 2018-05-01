@@ -5,6 +5,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 50px;
+    margin-bottom: 100px;
 }
 
 .header-stripe {
@@ -20,6 +21,33 @@
     margin-bottom: 25px;
 }
 
-.drink-show-img {
+.show-section {
     width: 50%;
+}
+
+.drink-show-img {
+    width: 100%;
+}
+
+.ingredients-container {
+    margin-top: 20px;
+}
+
+.ingredients-header {
+    color: $mediumgrey;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;    
+}
+
+.ingredient-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.ingredient-content-item {
+    margin: 5px 0;
+    font-size: 14px;
+    font-weight: 100;
+    color: $lightgrey;
 }
