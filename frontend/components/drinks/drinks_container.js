@@ -8,8 +8,6 @@ const mapStateToProps = state => {
   const genres = state.genres.genreResults;
   let merged = [];
   let newMerged;
-  // need to figure out a way to make this not run every single time someone starts searching
-  // maybe detach the itunes search results from the store?
   if (genres.length) {
     _.forEach(drinks, drink => {
       let count = _.intersection(drink.genres, genres).length

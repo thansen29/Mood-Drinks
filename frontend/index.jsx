@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import App from './components/app';
+import { HashRouter, Route } from 'react-router-dom';
+import Root from './components/root';
 import rootReducer from './reducers/root_reducer';
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -13,7 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
   ReactDOM.render(
     <Provider store={ store(rootReducer) }>
-      <App />
+      <HashRouter>
+        <Root />
+      </HashRouter>
     </Provider>
   , root);
 });

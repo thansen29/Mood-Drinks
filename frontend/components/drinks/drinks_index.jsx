@@ -29,11 +29,8 @@ class DrinksIndex extends React.Component {
                     <li key={ drink.drink.id } className="drink-item">
                         <DrinkItem 
                             name={ drink.drink.name }
-                            imageUrl={ drink.drink.imageUrl }
-                            directions={ drink.drink.directions }
-                            tips={ drink.drink.tips }
-                            ingredients={ drink.drink.ingredients }
-                            tools={ drink.drink.tools } />
+                            imageUrl={ drink.drink.imageUrl } 
+                            id={ drink.drink.id } />
                     </li>
                 )
             })

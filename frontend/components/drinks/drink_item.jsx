@@ -1,6 +1,6 @@
 import React from 'react';
-// import { Link } from 'react-router';
-// name, imageUrl,directions, tips, ingredients.asd, tools
+import { Link } from 'react-router-dom';
+
 class DrinkItem extends React.Component {
     constructor(props) {
         super(props);
@@ -17,21 +17,21 @@ class DrinkItem extends React.Component {
     }
 
     render() {
-        const { name, imageUrl } = this.props;
+        const { name, imageUrl, id } = this.props;
         const { hovered } = this.state;
         
         return (
-            <main 
+            <Link to={`/drink/${id}`}
                 className="drink-item-content"
                 onMouseEnter={ this.triggerHover }
                 onMouseLeave={ this.triggerHover }>
 
-                <div className={ hovered ? "screen-in" : "screen-out" }></div>
+                    <div className={ hovered ? "screen-in" : "screen-out" }></div>
 
-                <img src={ imageUrl } alt={ `${name} image` } />
+                    <img src={ imageUrl } alt={ `${name} image` } />
 
-                { hovered ? <span className="name-in">{ name.toUpperCase() }</span> : null }
-            </main>
+                    { hovered ? <span className="name-in">{ name.toUpperCase() }</span> : null }
+                </Link>
         );
     }
 }

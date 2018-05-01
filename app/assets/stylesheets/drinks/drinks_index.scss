@@ -9,7 +9,7 @@
 }
 
 .drink-item {
-    margin: 0 5px;  
+    margin: 5px;  
 
 }
 
@@ -20,11 +20,9 @@
     width: 350px;
     height: 350px; 
     position: relative;
-    // transition: all 400ms;    
     & img {
         width: 350px;
         height: 350px;
-        // transition: all 400ms;
     }
 }
 
@@ -35,21 +33,14 @@
     font-weight: 600;
     color: white;
     z-index: 3;;
-    pointer-events: none;
-    // transition: all 400ms ease-in-out;    
+    pointer-events: none;  
 }
 
-.name-out {
-    position: absolute;
-    z-index: 3;;
-    pointer-events: none;
-    // transition: all 400ms ease-in-out;    
-}
 
 .screen-in {
     transition: all 400ms ease-in-out;
-    height: 100%;
-    width: 100%;
+    height: 350px;
+    width: 350px;
     background-color: rgba(0,0,0,0.5);    
     position: absolute;
     z-index: 2;
@@ -60,8 +51,8 @@
 
 .screen-out {
     transition: all 400ms ease-in-out;
-    height: 100%;
-    width: 100%;   
+    height: 350px;
+    width: 350px;   
     position: absolute;
     z-index: 2;
     &:hover {

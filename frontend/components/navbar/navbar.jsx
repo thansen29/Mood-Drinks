@@ -1,15 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
     <nav className="navbar">
       <span>
-        <a href="http://www.copperandkings.com">
+        <Link to="/">
           <img
             className="main-logo"
             src="http://www.copperandkings.com/wordpress/wp-content/uploads/2015/11/logo-orange.png"
             alt="main logo" />
-        </a>
+        </Link>
       </span>
 
       <span className="small-logo">
