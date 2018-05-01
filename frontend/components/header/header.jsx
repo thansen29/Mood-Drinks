@@ -30,12 +30,14 @@ class Header extends React.Component {
     }
   }
 
-  componentWillReceiveProps(newProps) {
-    this.setState({ searchResults: newProps.searchResults });
-  }
-
   triggerSearch() {
-    this.props.searchTunes(this.state.searchField);
+    this.props.searchTunes(this.state.searchField)
+      .then((response) => {
+        const songData = response.data.results.slice(0, 5);
+        this.setState({ searchResults: songData });
+      }, (error) => {
+        debugger
+      });
   }
 
   handleSelection(item) {

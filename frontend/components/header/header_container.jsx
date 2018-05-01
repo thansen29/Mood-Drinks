@@ -1,18 +1,12 @@
 import { connect } from 'react-redux';
-import { searchTunes, fetchGenres } from '../../actions/search_actions';
+import { fetchGenres, searchTunes } from '../../actions/search_actions';
 import HeaderComponent from './header';
-
-const mapStateToProps = state => {
-  return {
-    searchResults: state.songs.searchResults
-  }
-}
 
 const mapDispatchToProps = dispatch => {
   return {
-    searchTunes: (params) => dispatch(searchTunes(params)),
-    fetchGenres: (artist) => dispatch(fetchGenres(artist))
+    fetchGenres: (artist) => dispatch(fetchGenres(artist)),
+    searchTunes: (params) => dispatch(searchTunes(params))
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HeaderComponent);
+export default connect(null, mapDispatchToProps)(HeaderComponent);
