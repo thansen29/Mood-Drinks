@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { fetchDrinks } from './drink_actions';
 
 export const RECEIVE_SONGS = 'RECEIVE_SONGS';
 export const RECEIVE_GENRES = 'RECEIVE_GENRES';

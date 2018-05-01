@@ -9,7 +9,14 @@ class DrinksIndex extends React.Component {
         this.props.fetchDrinks();
     }
 
+    componentWillReceiveProps(newProps) {
+        // console.log(newProps);
+    }
+
+    // sometimes no results are found
     render() {
+        const { drinks } = this.props
+        console.log(drinks);
         return (
             <div>hi</div>
         );

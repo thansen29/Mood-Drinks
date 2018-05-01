@@ -48,7 +48,7 @@ class Header extends React.Component {
   fetchGenres() {
     this.setState({ selected: false, searchField: '' })
     const artist = this.state.searchField.split('by ')[1];
-    this.props.fetchGenres(artist)
+    this.props.fetchGenres(artist);
   }
 
   render() {

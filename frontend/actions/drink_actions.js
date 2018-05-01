@@ -12,8 +12,8 @@ export const receiveDrinks = (drinks) => {
 export const fetchDrinks = () => dispatch => {
     axios.get('drinks')
         .then((response) => {
-            debugger
             const drinks = response.data;
+            dispatch(receiveDrinks(drinks))
         })
         .catch((error) => {
             debugger
