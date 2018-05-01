@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchDrink } from '../../actions/drink_actions';
+import { fetchDrink, clearSelected } from '../../actions/drink_actions';
 import Navbar from '../navbar/navbar';
 
 class DrinkShow extends React.Component {
@@ -13,15 +13,31 @@ class DrinkShow extends React.Component {
         this.props.fetchDrink(id);
     }
 
+    componentWillUnmount() {
+        console.log('dismounting');
+        
+        this.props.clearSelected();
+    }
+
 
     render() {
-        const { name } = this.props.drink;
+        const { name, imageUrl } = this.props.drink;
+
         return (
             <section className="whole-container">
                 <Navbar />
-                <header className="header-stripe">
-                    { name ? name.toUpperCase() : null}
-                </header>
+
+                <main className="drink-show-container">
+                    <header className="header-stripe">
+                        { name ? name.toUpperCase() : null}
+                    </header>
+
+                    { name ? <img 
+                        className="drink-show-img"
+                        src={ imageUrl } 
+                        alt={ `${name} image` }/> : null }
+
+                </main>
             </section>
         );        
     }
@@ -36,7 +52,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchDrink: (id) => dispatch(fetchDrink(id))
+        fetchDrink: (id) => dispatch(fetchDrink(id)),
+        clearSelected: () => dispatch(clearSelected())
     }
 }
 

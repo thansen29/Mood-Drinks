@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export const RECEIVE_DRINKS = 'RECEIVE_DRINKS';
 export const RECEIVE_DRINK = 'RECEIVE_DRINK';
+export const CLEAR_SELECTED = 'CLEAR_SELECTED';
 
 export const receiveDrinks = (drinks) => {
   return {
@@ -16,6 +17,12 @@ export const receiveDrink = (drink) => {
       drink
     }
   }
+
+export const unselectDrink = () => {
+    return {
+    type: CLEAR_SELECTED,
+    }
+}
 
 export const fetchDrinks = () => dispatch => {
     axios.get('drinks')
@@ -36,4 +43,8 @@ export const fetchDrink = id => dispatch => {
         .catch((error) => {
             debugger
         })
+}
+
+export const clearSelected = () => dispatch => {
+    dispatch(unselectDrink());
 }
