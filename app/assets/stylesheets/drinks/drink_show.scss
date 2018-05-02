@@ -29,11 +29,18 @@
     width: 100%;
 }
 
-.ingredients-container {
+.details-container {
     margin-top: 20px;
+    // display: flex;
+    // flex-wrap: wrap;
 }
 
-.ingredients-header {
+.detail-section {
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.section-header {
     color: $mediumgrey;
     font-size: 18px;
     font-weight: 600;
@@ -45,7 +52,7 @@
     flex-direction: column;
 }
 
-.ingredient-content-item {
+.content-item {
     margin: 5px 0;
     font-size: 14px;
     font-weight: 100;

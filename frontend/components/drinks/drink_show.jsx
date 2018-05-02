@@ -25,6 +25,7 @@ class DrinkShow extends React.Component {
     render() {
         const { name, imageUrl, ingredients, tools, directions, tips } = this.props.drink;
         let drinkIngredients;
+        let drinkTools;
         if (ingredients) {
             drinkIngredients = _.map(ingredients, ingredient => {
                 return (
@@ -38,6 +39,17 @@ class DrinkShow extends React.Component {
                 )
             })
         }
+
+        if (tools) {
+            drinkTools = _.map(tools, (tool, idx) => {
+                return (
+                    <li className="content-item" key={ idx }>
+                        { tool }
+                    </li>
+                );
+            });
+        }
+
 
         return (
             <section className="whole-container">
@@ -55,15 +67,52 @@ class DrinkShow extends React.Component {
                             src={ imageUrl } 
                             alt={ `${name} image` }/> : null }
 
-                        <section className="ingredients-container">
-                            <header className="ingredients-header">
-                                INGREDIENTS:
-                            </header>
-                            <ul>
-                                { drinkIngredients }
-                            </ul>
+                        <section className="details-container">
+                            <section className="detail-section">
+                                <header className="section-header">
+                                    INGREDIENTS:
+                                </header>
+                                <ul>
+                                    { drinkIngredients }
+                                </ul>
+                            </section>
+
+
+                            <section className="detail-section">
+                                <header className="section-header">
+                                    TOOLS:
+                                </header>
+
+                                <ul>
+                                    { drinkTools }
+                                </ul>
+                            </section>
+
+                            <section className="detail-section">
+                                <header className="section-header">
+                                    DIRECTIONS:
+                                </header>
+
+                                <p className="content-item">
+                                    { directions }
+                                </p>
+                            </section>
+
+                            { tips 
+                            ?     
+                                <section className="detail-section">
+                                    <header className="section-header">
+                                        TIPS:
+                                    </header>
+
+                                    <p className="content-item">
+                                        { tips }
+                                    </p>
+                                </section>
+                            : null 
+                            }
                         </section>
-                        
+
                     </section>                        
 
                 </main>
