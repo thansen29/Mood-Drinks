@@ -39,7 +39,8 @@ export const fetchDrinks = () => dispatch => {
             dispatch(receiveDrinks(drinks))
         })
         .catch((error) => {
-            debugger
+            console.log('ERROR', error);
+            
         });
 }
 
@@ -49,7 +50,7 @@ export const fetchDrink = id => dispatch => {
             dispatch(receiveDrink(drink));
         })
         .catch((error) => {
-            debugger
+            console.log('ERROR', error);            
         })
 }
 

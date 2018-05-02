@@ -1,6 +1,6 @@
 import React from 'react';
 import * as _ from 'lodash';
-import SearchResultItem from './search_result_item';
+// import SearchResultItem from './search_result_item';
 
 class Header extends React.Component {
   constructor(props) {
@@ -36,7 +36,7 @@ class Header extends React.Component {
         const songData = response.data.results.slice(0, 5);
         this.setState({ searchResults: songData });
       }, (error) => {
-        debugger
+        console.log('ERROR', error);        
       });
   }
 

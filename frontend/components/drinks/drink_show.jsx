@@ -16,8 +16,6 @@ class DrinkShow extends React.Component {
     }
 
     componentWillUnmount() {
-        console.log('dismounting');
-        
         this.props.clearSelected();
     }
 

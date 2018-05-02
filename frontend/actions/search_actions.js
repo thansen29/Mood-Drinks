@@ -27,7 +27,7 @@ export const fetchGenres = artist => dispatch => {
       }
     },
     (error) => {
-      debugger
+      console.log('ERROR', error);        
     }
   );
 }

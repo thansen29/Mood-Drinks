@@ -9,11 +9,17 @@ class DrinkItem extends React.Component {
             hovered: false
         }
 
-        this.triggerHover = this.triggerHover.bind(this);
+        this.hover = this.hover.bind(this);
+        this.unhover = this.unhover.bind(this);
+        
     }
 
-    triggerHover() {
-        this.setState({ hovered: !this.state.hovered });
+    hover() {
+        this.setState({ hovered: true });
+    }
+
+    unhover() {
+        this.setState({ hovered: false });
     }
 
     render() {
@@ -23,8 +29,8 @@ class DrinkItem extends React.Component {
         return (
             <Link to={`/drink/${id}`}
                 className="drink-item-content"
-                onMouseEnter={ this.triggerHover }
-                onMouseLeave={ this.triggerHover }>
+                onMouseEnter={ this.hover }
+                onMouseLeave={ this.unhover }>
 
                     <div className={ hovered ? "screen-in" : "screen-out" }></div>
 

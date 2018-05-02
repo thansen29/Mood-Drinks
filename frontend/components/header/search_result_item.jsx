@@ -1,38 +1,37 @@
-import React from 'react';
+// not currently being used
+// import React from 'react';
 
-class SearchResultItem extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+// class SearchResultItem extends React.Component {
+//   constructor(props) {
+//     super(props);
+//   }
 
-  selectItem() {
-    return e => {
-      debugger
-      this.props.handleSelection(item);
-    }
-  }
+//   selectItem() {
+//     return e => {
+//       this.props.handleSelection(item);
+//     }
+//   }
 
-  render() {
-    const { artworkUrl30, artistName, trackName, item } = this.props;
-    debugger
-    return (
-      <div
-        onClick={ this.selectItem }>
+//   render() {
+//     const { artworkUrl30, artistName, trackName, item } = this.props;
+//     return (
+//       <div
+//         onClick={ this.selectItem }>
 
-        <span>
-          <img src={ artworkUrl30 } />
-        </span>
+//         <span>
+//           <img src={ artworkUrl30 } />
+//         </span>
 
-        <span>
-          { artistName }
-        </span>
+//         <span>
+//           { artistName }
+//         </span>
 
-        <span>
-          { trackName }
-        </span>
-      </div>
-    );
-  }
-}
+//         <span>
+//           { trackName }
+//         </span>
+//       </div>
+//     );
+//   }
+// }
 
-export default SearchResultItem;
+// export default SearchResultItem;
