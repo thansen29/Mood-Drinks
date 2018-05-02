@@ -8,7 +8,7 @@ const mapStateToProps = state => {
   const genres = state.genres.genreResults;
   let merged = [];
   let newMerged;
-  console.log(drinks);
+  // console.log(drinks);
   
   if (genres.length) {
     _.forEach(drinks, drink => {

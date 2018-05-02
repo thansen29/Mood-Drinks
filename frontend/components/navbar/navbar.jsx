@@ -22,7 +22,7 @@ class Navbar extends React.Component {
             <img
               onClick={ this.resetStore }
               className="main-logo"
-              src="https://www.copperandkings.com/wordpress/wp-content/uploads/2015/11/logo-orange.png"
+              src="http://www.copperandkings.com/wordpress/wp-content/uploads/2015/11/logo-orange.png"
               alt="main logo" />
           </Link>
         </span>
@@ -30,7 +30,7 @@ class Navbar extends React.Component {
         <span className="small-logo">
           <img
             className="small-logo"
-            src="https://copperandkings.com/wordpress/wp-content/uploads/2015/11/potstill.png"
+            src="http://copperandkings.com/wordpress/wp-content/uploads/2015/11/potstill.png"
             alt="main logo" />
         </span>
       </nav>
