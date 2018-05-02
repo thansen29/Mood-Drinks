@@ -4,7 +4,7 @@ export const RECEIVE_DRINKS = 'RECEIVE_DRINKS';
 export const RECEIVE_DRINK = 'RECEIVE_DRINK';
 export const CLEAR_SELECTED = 'CLEAR_SELECTED';
 
-export const CLEAR_STORE = 'CLEAR_STORE';
+export const CLEAR_GENRES = 'CLEAR_GENRES';
 
 export const receiveDrinks = (drinks) => {
   return {
@@ -26,9 +26,9 @@ export const unselectDrink = () => {
     }
 }
 
-export const clearStore = () => {
+export const clearGenres = () => {
     return {
-    type: CLEAR_STORE,
+    type: CLEAR_GENRES,
     }
 }
 
@@ -58,6 +58,6 @@ export const clearSelected = () => dispatch => {
 }
 
 
-export const resetStore = () => dispatch => {
-    dispatch(clearStore());
+export const resetGenres = () => dispatch => {
+    dispatch(clearGenres());
 }

@@ -1,5 +1,5 @@
 import { RECEIVE_GENRES } from '../actions/search_actions';
-import { CLEAR_STORE } from '../actions/drink_actions';
+import { CLEAR_GENRES } from '../actions/drink_actions';
 
 
 const initialState = {
@@ -12,7 +12,7 @@ const genreReducer = (state = initialState, action) => {
     case RECEIVE_GENRES:
       newState.genreResults = action.genres;
       return newState;
-    case CLEAR_STORE:
+    case CLEAR_GENRES:
       return initialState;
     default:
       return state;

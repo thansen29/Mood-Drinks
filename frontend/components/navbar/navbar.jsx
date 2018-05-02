@@ -1,17 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { resetStore } from '../../actions/drink_actions';
+import { resetGenres } from '../../actions/drink_actions';
 
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
 
-    this.resetStore = this.resetStore.bind(this);
+    this.resetStore = this.resetGenres.bind(this);
   }
 
-  resetStore() {
-    this.props.resetStore();
+  resetGenres() {
+    this.props.resetGenres();
   }
 
   render() {
@@ -41,7 +41,7 @@ class Navbar extends React.Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    resetStore: () => dispatch(resetStore())
+    resetGenres: () => dispatch(resetGenres())
   }
 }
 
