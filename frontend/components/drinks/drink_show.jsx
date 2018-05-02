@@ -77,7 +77,8 @@ class DrinkShow extends React.Component {
                                 </ul>
                             </section>
 
-
+                            { tools instanceof Array && tools.length
+                            ?
                             <section className="detail-section">
                                 <header className="section-header">
                                     TOOLS:
@@ -87,6 +88,8 @@ class DrinkShow extends React.Component {
                                     { drinkTools }
                                 </ul>
                             </section>
+                            : null 
+                            }
 
                             <section className="detail-section">
                                 <header className="section-header">

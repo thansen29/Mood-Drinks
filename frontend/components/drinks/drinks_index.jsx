@@ -2,11 +2,13 @@ import React from 'react';
 import DrinkItem from './drink_item';
 import * as _ from 'lodash';
 
+// clearing the store on the nav bar clears it but it says no results
 class DrinksIndex extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            drinks: []
+            drinks: [],
+            noResults: false,
         }
     }
 
@@ -16,14 +18,15 @@ class DrinksIndex extends React.Component {
 
     componentWillReceiveProps(newProps) {
         if (newProps.drinks) {
-            this.setState({ drinks: newProps.drinks });
+            this.setState({ drinks: newProps.drinks, noResults: false });
+        } else {
+            this.setState({ drinks: [], noResults: true })
         }
     }
 
-    // sometimes no results are found
     render() {
         let drinks;
-        if (this.state.drinks) {
+        if (this.state.drinks.length) {
             drinks = _.map(this.state.drinks, drink => {
                 return (
                     <li key={ drink.drink.id } className="drink-item">
@@ -35,9 +38,15 @@ class DrinksIndex extends React.Component {
                 )
             })
         }
-        
         return (
             <section className="drink-index-container">
+                { this.state.noResults 
+                ? 
+                <div className="no-results">
+                    Sorry, we couldn't find any drinks for that one 
+                </div>
+                : null}
+
                 <ul className="drink-list">
                     { drinks }
                 </ul>
