@@ -27,7 +27,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack --watch",
-    "postinstall": "weboack"
+    "postinstall": "webpack"
   },
   "engines": {
     "node": "v6.10.1",
