@@ -3,7 +3,8 @@ import { CLEAR_GENRES } from '../actions/drink_actions';
 
 
 const initialState = {
-  genreResults: []
+  genreResults: [],
+  justCleared: false
 };
 
 const genreReducer = (state = initialState, action) => {
@@ -11,9 +12,11 @@ const genreReducer = (state = initialState, action) => {
   switch (action.type) {
     case RECEIVE_GENRES:
       newState.genreResults = action.genres;
+      newState.justCleared = false;
       return newState;
     case CLEAR_GENRES:
-      return initialState;
+      newState.justCleared = true;
+      return newState;
     default:
       return state;
   }

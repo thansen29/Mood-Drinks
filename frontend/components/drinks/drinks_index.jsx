@@ -17,11 +17,14 @@ class DrinksIndex extends React.Component {
     }
 
     componentWillReceiveProps(newProps) {
-        if (newProps.drinks) {
+        if (newProps.cleared) {
+            this.setState({ drinks: [], noResults: false });
+        } else if (newProps.drinks) {
             this.setState({ drinks: newProps.drinks, noResults: false });
         } else {
             this.setState({ drinks: [], noResults: true })
         }
+
     }
 
     render() {
