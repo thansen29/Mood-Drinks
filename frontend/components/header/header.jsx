@@ -35,8 +35,6 @@ class Header extends React.Component {
       .then((response) => {
         const songData = response.data.results.slice(0, 5);
         this.setState({ searchResults: songData });
-      }, (error) => {
-        console.log('ERROR', error);        
       });
   }
 

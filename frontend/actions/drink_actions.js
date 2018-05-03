@@ -38,19 +38,12 @@ export const fetchDrinks = () => dispatch => {
             const drinks = response.data;
             dispatch(receiveDrinks(drinks))
         })
-        .catch((error) => {
-            console.log('ERROR', error);
-            
-        });
 }
 
 export const fetchDrink = id => dispatch => {
     axios.get(`drinks/${id}`)
         .then((drink) => {
             dispatch(receiveDrink(drink));
-        })
-        .catch((error) => {
-            console.log('ERROR', error);            
         })
 }
 

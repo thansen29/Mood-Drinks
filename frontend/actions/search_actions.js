@@ -25,9 +25,6 @@ export const fetchGenres = artist => dispatch => {
       if (response.data.cache) {
         cacheData(artist, genres);
       }
-    },
-    (error) => {
-      console.log('ERROR', error);        
     }
   );
 }
@@ -36,10 +33,5 @@ const cacheData = (artist, genres) => {
   axios.post('search/cache', {
     artist,
     genres
-  })
-  .catch(
-    (error) => {
-      console.log(error);
-    }
-  )
+  });
 }

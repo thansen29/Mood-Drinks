@@ -9,8 +9,7 @@ const mapStateToProps = state => {
   let merged = [];
   let newMerged;
   let cleared;
-  console.log(genres);
-  
+
   if (genres.length) {
     _.forEach(drinks, drink => {
 
