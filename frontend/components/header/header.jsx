@@ -9,7 +9,8 @@ class Header extends React.Component {
     this.state = {
       searchField: '',
       searchResults: [],
-      selected: false
+      selected: false,
+      playingSong: ''
     };
 
     this.timer = null;
@@ -41,14 +42,15 @@ class Header extends React.Component {
   handleSelection(item) {
     return () => {
       const details = `${item.trackName} by ${item.artistName}`;
-      this.setState({ searchField: details, searchResults: [], selected: true });
+      this.setState({ searchField: details, searchResults: [], selected: true, playingSong: item.previewUrl });
     }
   }
 
   fetchGenres(e) {
     e.preventDefault();
     this.setState({ selected: false, searchField: '' })
-    const artist = this.state.searchField.split('by ')[1];
+    const array = this.state.searchField.split('by ');
+    const artist = array[array.length-1];
     this.props.fetchGenres(artist);
   }
 
@@ -78,6 +80,10 @@ class Header extends React.Component {
 
     return (
       <header className="header">
+
+      {/* <audio controls>
+        <source src="https://p.scdn.co/mp3-preview/5597144cc3b18d706d3cd7ee9e1802af6dcaddd4?cid=7c4536cf355f48158c3b16701da1d677" type="audio/mp3" />        
+      </audio>  */}
 
         <label className="input-label">
           What are you listening to?

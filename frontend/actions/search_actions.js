@@ -21,6 +21,7 @@ export const fetchGenres = artist => dispatch => {
   .then(
     (response) => {
       const genres = response.data.genres;
+      console.log(genres);
       dispatch(receiveGenres(genres));
       if (response.data.cache) {
         cacheData(artist, genres);

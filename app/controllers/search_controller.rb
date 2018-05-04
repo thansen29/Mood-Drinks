@@ -1,9 +1,9 @@
 require 'rest-client'
+require 'i18n'
 
 class SearchController < ApplicationController
   def search
-    artist = params['artist']
-
+    artist = I18n.transliterate(params['artist'])
     searched_artist = Artist.find_by(name: artist) 
 
     if searched_artist 
@@ -11,8 +11,10 @@ class SearchController < ApplicationController
       return;
     else 
       token = self.authorize()      
+
       genres_query = RestClient.get("https://api.spotify.com/v1/search?q=#{artist}&type=artist",
                               {"Authorization" => "Bearer #{token}"})
+
       # should do some error check in the case where the search fails for whatever reason
   
       @genres = JSON.parse(genres_query.body)['artists']['items'][0]['genres']
@@ -20,8 +22,12 @@ class SearchController < ApplicationController
       render json: { genres: @genres, cache: true }
     end 
 
-  end
+      # track = RestClient.get("https://api.spotify.com/v1/search?q=black%20honey&type=track",
+      #                         {"Authorization" => "Bearer #{token}"})
+      # JSON.parse(track.body)['tracks']['items'][0]
 
+  end
+  
   def authorize
     client_id = ENV['client_id']
     client_secret = ENV['client_secret']    
