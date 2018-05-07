@@ -18,6 +18,15 @@ class SearchController < ApplicationController
       # should do some error check in the case where the search fails for whatever reason
   
       @genres = JSON.parse(genres_query.body)['artists']['items'][0]['genres']
+      if @genres.length == 0 
+        @drink = Drink
+          .includes(:genres)
+          .includes(:ingredients)
+          .includes(:tools)
+          .find_by(name: 'Sea of Clouds (negroni)')
+        render partial: 'drink.json.jbuilder'
+        return
+      end 
 
       render json: { genres: @genres, cache: true }
     end 

@@ -22,8 +22,14 @@ const mapStateToProps = state => {
     newMerged = _.sortBy(merged, ['count']).reverse().slice(0, 4);
     if (!newMerged.length) {
       newMerged = null;
-    }
+    } 
+  } 
+
+  if (state.drinks.defaultDrink) {
+    newMerged = [{ drink: state.drinks.defaultDrink }]
   }
+
+  
   if (state.genres.justCleared) {
     cleared = true;
   }
