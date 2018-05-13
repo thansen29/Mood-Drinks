@@ -29,7 +29,6 @@ const mapStateToProps = state => {
     newMerged = [{ drink: state.drinks.defaultDrink }]
   }
 
-  
   if (state.genres.justCleared) {
     cleared = true;
   }

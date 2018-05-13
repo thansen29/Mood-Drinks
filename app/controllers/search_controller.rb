@@ -31,11 +31,22 @@ class SearchController < ApplicationController
       render json: { genres: @genres, cache: true }
     end 
 
-      # track = RestClient.get("https://api.spotify.com/v1/search?q=black%20honey&type=track",
-      #                         {"Authorization" => "Bearer #{token}"})
-      # JSON.parse(track.body)['tracks']['items'][0]
-
   end
+
+  def fetchSong
+    token = self.authorize()
+    song = I18n.transliterate(params['song'])
+    # can do some caching for each track
+
+    track = RestClient.get("https://api.spotify.com/v1/search?q=#{song}&type=track",
+                        {"Authorization" => "Bearer #{token}"})
+
+    preview_url = JSON.parse(track.body)['tracks']['items'][0]['preview_url']
+    external_url = JSON.parse(track.body)['tracks']['items'][0]['album']['external_urls']['spotify']
+    
+    render json: { previewUrl: preview_url, externalUrl: external_url }
+
+  end 
   
   def authorize
     client_id = ENV['client_id']

@@ -38,7 +38,6 @@ export const fetchGenres = artist => dispatch => {
     (response) => {
       const genres = response.data.genres;
       // console.log(genres);
-      // debugger
       if (response.data.name === 'Sea of Clouds (negroni)') {
         dispatch(setDefault(response.data));
       } else {
@@ -58,4 +57,18 @@ const cacheData = (artist, genres) => {
     artist,
     genres
   });
+}
+
+export const fetchSong = song => dispatch => {
+  axios.post('fetchSong', {
+    song: song
+  })
+  .then((response) => {
+    const previewUrl = response.data.previewUrl;
+    const externalUrl = response.data.externalUrl;
+    debugger
+  })
+  .catch((error) => {
+    debugger
+  })
 }
