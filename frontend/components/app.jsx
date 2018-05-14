@@ -1,24 +1,34 @@
 import React from 'react';
-// Styles the jPlayer to look nice
-// import 'react-jplayer/src/less/skins/sleek.less';
-// Styles Play/Pause/Mute etc when icons (<i />) are used for them
-// import 'react-jplayer/src/less/controls/iconControls.less';
-
+import { connect } from 'react-redux';
 import Navbar from './navbar/navbar';
 import HeaderContainer from './header/header_container';
 import DrinksIndex from './drinks/drinks_container';
 import AudioPlayer from './audio_player';
+import DrinkShow from './drinks/drink_show';
 
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
+    const drinkShow = this.props.location.pathname.includes('drink');
     return (
       <section className="whole-container">
+      { !drinkShow 
+      ?
+      <div>
         <Navbar />
-
+        
         <HeaderContainer />
-
+        
         <DrinksIndex />
+      </div>
+      :
+        <DrinkShow />
+      }
+
 
         <AudioPlayer />
       </section>
@@ -26,4 +36,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default connect(null, null)(App);

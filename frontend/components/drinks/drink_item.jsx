@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom'
 
 class DrinkItem extends React.Component {
     constructor(props) {
@@ -11,7 +13,6 @@ class DrinkItem extends React.Component {
 
         this.hover = this.hover.bind(this);
         this.unhover = this.unhover.bind(this);
-        
     }
 
     hover() {
@@ -37,9 +38,9 @@ class DrinkItem extends React.Component {
                     <img src={ imageUrl } alt={ `${name} image` } />
 
                     { hovered ? <span className="name-in">{ name.toUpperCase() }</span> : null }
-                </Link>
+            </Link>
         );
     }
 }
 
-export default DrinkItem;
+export default withRouter(connect(null, null)(DrinkItem));

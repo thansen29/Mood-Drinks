@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import * as _ from 'lodash';
 import { fetchDrink, clearSelected } from '../../actions/drink_actions';
 import Navbar from '../navbar/navbar';
@@ -11,7 +12,8 @@ class DrinkShow extends React.Component {
     }
 
     componentDidMount() {
-        const id = this.props.match.params.id;
+        const path = this.props.location.pathname.split('/');
+        const id = +path[path.length-1];
         this.props.fetchDrink(id);
     }
 
@@ -138,4 +140,4 @@ const mapDispatchToProps = dispatch => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(DrinkShow);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DrinkShow));

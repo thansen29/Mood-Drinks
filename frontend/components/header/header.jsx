@@ -18,7 +18,7 @@ class Header extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.triggerSearch = this.triggerSearch.bind(this);
     this.handleSelection = this.handleSelection.bind(this);
-    this.fetchGenres = this.fetchGenres.bind(this);
+    // this.fetchGenres = this.fetchGenres.bind(this);
   }
 
   handleChange(field) {
@@ -49,13 +49,13 @@ class Header extends React.Component {
     }
   }
 
-  fetchGenres(e) {
-    e.preventDefault();
-    this.setState({ selected: false, searchField: '' })
-    const array = this.state.searchField.split('by ');
-    const artist = array[array.length-1];
-    this.props.fetchGenres(artist);
-  }
+  // fetchGenres(e) {
+  //   e.preventDefault();
+  //   this.setState({ selected: false, searchField: '' })
+  //   const array = this.state.searchField.split('by ');
+  //   const artist = array[array.length-1];
+  //   this.props.fetchGenres(artist);
+  // }
 
   render() {
     const { searchResults } = this.state;
@@ -84,17 +84,12 @@ class Header extends React.Component {
     return (
       <header className="header">
 
-      {/* <audio controls>
-        <source src="https://p.scdn.co/mp3-preview/5597144cc3b18d706d3cd7ee9e1802af6dcaddd4?cid=7c4536cf355f48158c3b16701da1d677" type="audio/mp3" />        
-      </audio>  */}
-
         <label className="input-label">
           What are you listening to?
         </label>
 
         <form
-          className="container"
-          onSubmit={ this.fetchGenres }>
+          className="container">
 
           <div className="input-wrapper">
             <input
@@ -102,11 +97,11 @@ class Header extends React.Component {
               value={ this.state.searchField }
               onChange={ this.handleChange('searchField') } />
 
-            <button
+            {/* <button
               className={ this.state.selected ? "submit-button" : "submit-button-disabled" }
               disabled={ !this.state.selected }>
               Find me drinks!
-            </button>
+            </button> */}
             
           </div>
 

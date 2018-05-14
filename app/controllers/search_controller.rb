@@ -42,9 +42,9 @@ class SearchController < ApplicationController
                         {"Authorization" => "Bearer #{token}"})
 
     preview_url = JSON.parse(track.body)['tracks']['items'][0]['preview_url']
-    external_url = JSON.parse(track.body)['tracks']['items'][0]['album']['external_urls']['spotify']
+    # external_url = JSON.parse(track.body)['tracks']['items'][0]['album']['external_urls']['spotify']
     
-    render json: { previewUrl: preview_url, externalUrl: external_url }
+    render json: { previewUrl: preview_url }
 
   end 
   

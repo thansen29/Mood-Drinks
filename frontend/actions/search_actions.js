@@ -32,13 +32,13 @@ export const searchTunes = params => dispatch => {
 }
 
 export const fetchGenres = artist => dispatch => {
+  console.log('hello');
   axios.post('search', {
     artist: artist
   })
   .then(
     (response) => {
       const genres = response.data.genres;
-      // console.log(genres);
       if (response.data.name === 'Sea of Clouds (negroni)') {
         dispatch(setDefault(response.data));
       } else {
@@ -69,7 +69,6 @@ export const fetchSong = (song, details) => dispatch => {
   })
   .then((response) => {
     const previewUrl = response.data.previewUrl;
-    const externalUrl = response.data.externalUrl;
     if (previewUrl) {
       dispatch(actions.setOption('AudioPlayer', 'media', {
         title: title,
@@ -88,6 +87,8 @@ export const fetchSong = (song, details) => dispatch => {
   })
   .catch((error) => {
     console.log('ERROR');
-    
+  })
+  .then(() => {
+    dispatch(fetchGenres(artist));
   })
 }
