@@ -32,7 +32,6 @@ export const searchTunes = params => dispatch => {
 }
 
 export const fetchGenres = artist => dispatch => {
-  console.log('hello');
   axios.post('search', {
     artist: artist
   })
