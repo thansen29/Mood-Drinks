@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import { actions } from 'react-jplayer';
 export const RECEIVE_DRINKS = 'RECEIVE_DRINKS';
 export const RECEIVE_DRINK = 'RECEIVE_DRINK';
 export const CLEAR_SELECTED = 'CLEAR_SELECTED';
@@ -54,4 +54,5 @@ export const clearSelected = () => dispatch => {
 
 export const resetGenres = () => dispatch => {
     dispatch(clearGenres());
+    dispatch(actions.clearMedia('AudioPlayer'));
 }

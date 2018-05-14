@@ -6,7 +6,7 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchGenres: (artist) => dispatch(fetchGenres(artist)),
     searchTunes: (params) => dispatch(searchTunes(params)),
-    fetchSong: (song) => dispatch(fetchSong(song)),
+    fetchSong: (song, details) => dispatch(fetchSong(song, details)),
   }
 }
 

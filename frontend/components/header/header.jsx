@@ -44,8 +44,8 @@ class Header extends React.Component {
       const details = `${item.trackName} by ${item.artistName}`;
       this.setState({ searchField: details, searchResults: [], selected: true, playingSong: item.previewUrl });
 
-      const song = `${item.trackName} ${item.artistName}`
-      this.props.fetchSong(song)
+      const song = `${item.trackName} ${item.artistName}`;
+      this.props.fetchSong(song, details);
     }
   }
 

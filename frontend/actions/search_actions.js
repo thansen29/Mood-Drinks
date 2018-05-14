@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { actions } from 'react-jplayer';
 import { fetchDrinks } from './drink_actions';
 
 export const RECEIVE_GENRES = 'RECEIVE_GENRES';
@@ -59,14 +60,22 @@ const cacheData = (artist, genres) => {
   });
 }
 
-export const fetchSong = song => dispatch => {
+export const fetchSong = (song, details) => dispatch => {
+  const array = details.split('by ');
+  const title = array[0];
+  const artist = array[1];
   axios.post('fetchSong', {
     song: song
   })
   .then((response) => {
     const previewUrl = response.data.previewUrl;
     const externalUrl = response.data.externalUrl;
-    debugger
+    dispatch(actions.setOption('AudioPlayer', 'media', {
+      title: title,
+      artist: artist,
+      sources: { mp3: previewUrl },
+    }));
+    
   })
   .catch((error) => {
     debugger
