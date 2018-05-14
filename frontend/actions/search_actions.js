@@ -70,14 +70,24 @@ export const fetchSong = (song, details) => dispatch => {
   .then((response) => {
     const previewUrl = response.data.previewUrl;
     const externalUrl = response.data.externalUrl;
-    dispatch(actions.setOption('AudioPlayer', 'media', {
-      title: title,
-      artist: artist,
-      sources: { mp3: previewUrl },
-    }));
+    if (previewUrl) {
+      dispatch(actions.setOption('AudioPlayer', 'media', {
+        title: title,
+        artist: artist,
+        sources: { mp3: previewUrl },
+      }));
+      dispatch(actions.play('AudioPlayer'));
+    } else {
+        dispatch(actions.setOption('AudioPlayer', 'media', {
+          title: null,
+          artist: "No Preview Available :(",
+          sources: { m4a: null },
+        }));
+    }
     
   })
   .catch((error) => {
-    debugger
+    console.log('ERROR');
+    
   })
 }
