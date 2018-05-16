@@ -43,7 +43,7 @@ class SearchController < ApplicationController
 
     preview_url = JSON.parse(track.body)['tracks']['items'][0]['preview_url']
     # external_url = JSON.parse(track.body)['tracks']['items'][0]['album']['external_urls']['spotify']
-    
+    debugger
     render json: { previewUrl: preview_url }
 
   end 
