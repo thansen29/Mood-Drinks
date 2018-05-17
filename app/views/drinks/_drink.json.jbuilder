@@ -6,3 +6,4 @@ json.tips drink.tips
 json.genres drink.genres.pluck(:name)
 json.ingredients drink.ingredients
 json.tools drink.tools.pluck(:name)
+json.videoUrl drink.video_url

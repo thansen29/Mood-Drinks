@@ -15,6 +15,10 @@ class DrinkShow extends React.Component {
         const path = this.props.location.pathname.split('/');
         const id = +path[path.length-1];
         this.props.fetchDrink(id);
+
+        // const video =  document.getElementById('youtube'); 
+        // debugger
+        // video.mute();
     }
 
     componentWillUnmount() {
@@ -23,7 +27,7 @@ class DrinkShow extends React.Component {
 
 
     render() {
-        const { name, imageUrl, ingredients, tools, directions, tips } = this.props.drink;
+        const { name, imageUrl, ingredients, tools, directions, tips, videoUrl } = this.props.drink;
         let drinkIngredients;
         let drinkTools;
         if (ingredients) {
@@ -114,11 +118,36 @@ class DrinkShow extends React.Component {
                                 </section>
                             : null 
                             }
+
+                            <div className="videos">
+                                { videoUrl
+                                ?
+                                    <iframe 
+                                        width="560"
+                                        height="315" 
+                                        src={ videoUrl }
+                                        allowFullScreen>
+                                    </iframe> 
+                                : null
+                                }
+
+                                { name === "Suffering Bastard" 
+                                ?
+
+                                    <iframe 
+                                        width="560"
+                                        height="315" 
+                                        src="https://www.youtube.com/embed/DghiNUEiKQg"
+                                        allowFullScreen>
+                                    </iframe> 
+                                : null
+                                }
+                            </div>
                         </section>
+                        
+            
 
-                    </section>                        
-
-                    {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/MFqLaG2Qw2g" allowFullScreen></iframe> */}
+                    </section>        
                 </main>
             </section>
         );        

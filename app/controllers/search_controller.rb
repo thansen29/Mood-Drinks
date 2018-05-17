@@ -24,8 +24,8 @@ class SearchController < ApplicationController
           .includes(:ingredients)
           .includes(:tools)
           .find_by(name: 'Sea of Clouds (negroni)')
-        render partial: 'drink.json.jbuilder'
-        return
+          render partial: 'drink.json.jbuilder'
+          return
       end 
 
       render json: { genres: @genres, cache: true }
@@ -43,7 +43,7 @@ class SearchController < ApplicationController
 
     preview_url = JSON.parse(track.body)['tracks']['items'][0]['preview_url']
     # external_url = JSON.parse(track.body)['tracks']['items'][0]['album']['external_urls']['spotify']
-    debugger
+    # debugger
     render json: { previewUrl: preview_url }
 
   end 

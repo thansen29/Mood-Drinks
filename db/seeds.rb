@@ -479,7 +479,7 @@ DrinkTool.create('drink_id': milk_punch.id, 'tool_id': jelly_bag.id)
 
 craftwerk_manhattan_image = File.open('app/assets/images/craftwerkManhattan.jpg')
 craftwerk_manhattan = Drink.create('name': 'Cr&ftwerk Manhattan', 'directions': 'Add Ingredients To Mixing Glass. Fill With Ice. Stir and strain into a chilled cocktail glass. Garnish with an orange twist.',
-'image': craftwerk_manhattan_image)
+'image': craftwerk_manhattan_image, 'video_url': "https://www.youtube.com/embed/fzFT03KLTD0?autoplay=1&mute=1")
 DrinkGenre.create('drink_id': craftwerk_manhattan.id, 'genre_id': brostep.id)
 DrinkGenre.create('drink_id': craftwerk_manhattan.id, 'genre_id': skate_punk.id)
 DrinkGenre.create('drink_id': craftwerk_manhattan.id, 'genre_id': experimental.id)
@@ -512,7 +512,7 @@ DrinkTool.create('drink_id': coffee_cocktail.id, 'tool_id': strainer.id)
 
 suffering_bastard_image = File.open('app/assets/images/sufferingBastard.jpg')
 suffering_bastard = Drink.create('name': 'Suffering Bastard', 'directions': 'Combine ingredients in shaker. Add ice and shake. Strain into a glass with ice. Top with ginger beer. Garnish with lime.',
-'image': suffering_bastard_image)
+'image': suffering_bastard_image, 'video_url': "https://www.youtube.com/embed/yxp6yGxGMnI?autoplay=1&mute=1")
 DrinkGenre.create('drink_id': suffering_bastard.id, 'genre_id': tropical.id)
 DrinkGenre.create('drink_id': suffering_bastard.id, 'genre_id': reggae_fusion.id)
 DrinkGenre.create('drink_id': suffering_bastard.id, 'genre_id': reggae.id)
@@ -608,7 +608,7 @@ DrinkTool.create('drink_id': gimlet.id, 'tool_id': hawthorne_strainer.id)
 
 aviation_image = File.open('app/assets/images/aviation.jpg')
 aviation = Drink.create('name': 'Aviation', 'directions': 'Shake ingredients with ice, then strain into a chilled glass. Garnish with a brandied cocktail cherry.',
-'image': aviation_image)
+'image': aviation_image, 'video_url': "https://www.youtube.com/embed/Ee7eGNwCSOI?autoplay=1&mute=1")
 DrinkGenre.create('drink_id': aviation.id, 'genre_id': chillwave.id)
 DrinkGenre.create('drink_id': aviation.id, 'genre_id': compositional_ambient.id)
 DrinkGenre.create('drink_id': aviation.id, 'genre_id': synth.id)
@@ -645,7 +645,7 @@ DrinkTool.create('drink_id': french75.id, 'tool_id': boston_shaker.id)
 
 sidecar_image = File.open('app/assets/images/sidecar.jpg')
 sidecar = Drink.create('name': 'Sidecar', 'directions': 'Fill a shaker half full of ice, add ingredients. Shake well and strain into a coupe.',
-'image': sidecar_image)
+'image': sidecar_image, 'video_url': "https://www.youtube.com/embed/cY3ocNwsz-g?autoplay=1&mute=1")
 DrinkGenre.create('drink_id': sidecar.id, 'genre_id': neo_psychadelic.id)
 DrinkGenre.create('drink_id': sidecar.id, 'genre_id': modern_rock.id)
 DrinkGenre.create('drink_id': sidecar.id, 'genre_id': southern_rock.id)
@@ -766,7 +766,7 @@ DrinkTool.create('drink_id': marconi_wireless.id, 'tool_id': hawthorne_strainer.
 
 vieux_carre_image = File.open('app/assets/images/vieuxCarre.jpg')
 vieux_carre = Drink.create('name': 'Vieux Carré', 'directions': 'Combine ingredients in mixing glass and fill with ice. Stir well, strain into an ice-filled cocktail glass and garnish with a brandied cherry, lemon twist or both.',
-'image': vieux_carre_image)
+'image': vieux_carre_image, 'video_url': "https://www.youtube.com/embed/hmbBb5pdaFs?autoplay=1&mute=1")
 DrinkGenre.create('drink_id': vieux_carre.id, 'genre_id': jazz_blues.id)
 DrinkGenre.create('drink_id': vieux_carre.id, 'genre_id': underground_hip_hop.id)
 DrinkGenre.create('drink_id': vieux_carre.id, 'genre_id': dirty_south_hip_hop.id)
@@ -932,7 +932,7 @@ DrinkTool.create('drink_id': margarita.id, 'tool_id': hawthorne_strainer.id)
 
 julep_image = File.open('app/assets/images/julep.jpg')
 julep = Drink.create('name': 'Julep', 'directions': 'Combine all ingredients in mixing glass. Muddle mint leaves. Strain liquid into glass, fill with crushed ice to heaping. Garnish with mint leaves.',
-'image': julep_image)
+'image': julep_image, 'video_url': "https://www.youtube.com/embed/1wpaWelt2Dw?autoplay=1&mute=1")
 DrinkGenre.create('drink_id': julep.id, 'genre_id': americana.id)
 DrinkGenre.create('drink_id': julep.id, 'genre_id': folk.id)
 DrinkGenre.create('drink_id': julep.id, 'genre_id': country_road.id)
@@ -1061,7 +1061,7 @@ DrinkTool.create('drink_id': chrysanthemum.id, 'tool_id': hawthorne_strainer.id)
 
 corpse_reviver_image = File.open('app/assets/images/corpseReviver.jpg')
 corpse_reviver = Drink.create('name': 'Corpse Reviver', 'directions': 'Combine brandy, Apple brandy & sweet vermouth In Mixing glass. Stir with ice. Strain into a chilled cocktail glass.',
-'image': corpse_reviver_image)
+'image': corpse_reviver_image, 'video_url': "https://www.youtube.com/embed/VTu0CZXF7wo?autoplay=1&mute=1")
 DrinkGenre.create('drink_id': corpse_reviver.id, 'genre_id': hardcore.id)
 DrinkGenre.create('drink_id': corpse_reviver.id, 'genre_id': metalcore.id)
 DrinkGenre.create('drink_id': corpse_reviver.id, 'genre_id': emo.id)

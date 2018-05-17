@@ -19,13 +19,20 @@ const mapStateToProps = state => {
         merged.push({ drink, count});
       }
     });
+    
     newMerged = _.sortBy(merged, ['count']).reverse().slice(0, 4);
     if (!newMerged.length) {
-      newMerged = null;
+      // set default here
+        _.forEach(drinks, drink => {
+          if (drink.name === "Sea of Clouds (negroni)") {
+            newMerged = [{ drink: drink }];
+          }
+        });
     } 
   } 
 
   if (state.drinks.defaultDrink) {
+    debugger
     newMerged = [{ drink: state.drinks.defaultDrink }]
   }
 
