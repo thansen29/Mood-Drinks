@@ -13,3 +13,51 @@
  *= require_tree .
  *= require_self
  */
+
+//  media 1500
+
+// media 800
+// header-stripe 26px
+// section-header 22px
+//content-item 16px
+
+@media screen and (max-width: 1500px) {
+    .drink-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .input-label {
+        font-size: 22px;
+    }
+
+    .header-stripe { 
+        font-size: 26px;
+    }
+
+    .section-header { 
+        font-size: 22px;
+    }
+
+    .content-item { 
+        font-size: 16px;
+    }
+}
+
+@media screen and(max-width: 800px) {
+    .input-label {
+        font-size: 24px;
+    }
+
+    .header-stripe { 
+        font-size: 28px;
+    }
+
+    .section-header { 
+        font-size: 24px;
+    }
+
+    .content-item { 
+        font-size: 18px;
+    }
+}

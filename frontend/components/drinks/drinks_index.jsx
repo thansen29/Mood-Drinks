@@ -32,12 +32,16 @@ class DrinksIndex extends React.Component {
         if (this.state.drinks.length) {
             drinks = _.map(this.state.drinks, drink => {
                 return (
-                    <li key={ drink.drink.id } className="drink-item">
-                        <DrinkItem 
-                            name={ drink.drink.name }
-                            imageUrl={ drink.drink.imageUrl } 
-                            id={ drink.drink.id } />
-                    </li>
+                    <div className="col-wrapper" key={ drink.drink.id }>
+                        <div className="col">
+                            <li className="drink-item">
+                                <DrinkItem 
+                                    name={ drink.drink.name }
+                                    imageUrl={ drink.drink.imageUrl } 
+                                    id={ drink.drink.id } />
+                            </li>
+                        </div>
+                    </div>
                 )
             })
         }

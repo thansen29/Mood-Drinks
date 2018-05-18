@@ -34,7 +34,7 @@ class DrinkItem extends React.Component {
                 onMouseLeave={ this.unhover }>
 
                     <div className={ hovered ? "screen-in" : "screen-out" }></div>
-
+            
                     <img src={ imageUrl } alt={ `${name} image` } />
 
                     { hovered ? <span className="name-in">{ name.toUpperCase() }</span> : null }
