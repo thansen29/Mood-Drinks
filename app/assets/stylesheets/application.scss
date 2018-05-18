@@ -22,42 +22,55 @@
 //content-item 16px
 
 @media screen and (max-width: 1500px) {
-    .drink-list {
-        flex-direction: column;
-        align-items: center;
-    }
+    // .drink-list {
+    //     flex-direction: column;
+    //     align-items: center;
+    // }
 
     .input-label {
-        font-size: 22px;
+        font-size: 130%;
     }
 
     .header-stripe { 
-        font-size: 26px;
+        font-size: 180%;
     }
 
     .section-header { 
-        font-size: 22px;
+        font-size: 160%;
     }
 
     .content-item { 
-        font-size: 16px;
+        font-size: 130%;;
+    }
+
+    .search-field {
+        font-size: 110%;
     }
 }
 
 @media screen and(max-width: 800px) {
+    .drink-list {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .search-field {
+        font-size: 130%;
+    }
+
     .input-label {
-        font-size: 24px;
+        font-size: 180%;
     }
 
     .header-stripe { 
-        font-size: 28px;
+        font-size: 200%;
     }
 
     .section-header { 
-        font-size: 24px;
+        font-size: 180%;
     }
 
     .content-item { 
-        font-size: 18px;
+        font-size: 160%;
     }
 }
