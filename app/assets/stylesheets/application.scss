@@ -28,38 +28,7 @@
     // }
 
     .input-label {
-        font-size: 130%;
-    }
-
-    .header-stripe { 
-        font-size: 180%;
-    }
-
-    .section-header { 
-        font-size: 160%;
-    }
-
-    .content-item { 
-        font-size: 130%;;
-    }
-
-    .search-field {
-        font-size: 110%;
-    }
-}
-
-@media screen and(max-width: 800px) {
-    .drink-list {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .search-field {
-        font-size: 130%;
-    }
-
-    .input-label {
-        font-size: 180%;
+        font-size: 150%;
     }
 
     .header-stripe { 
@@ -71,6 +40,37 @@
     }
 
     .content-item { 
-        font-size: 160%;
+        font-size: 150%;;
+    }
+
+    .search-field {
+        font-size: 130%;
+    }
+}
+
+@media screen and(max-width: 800px) {
+    .drink-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-field {
+        font-size: 150%;
+    }
+
+    .input-label {
+        font-size: 200%;
+    }
+
+    .header-stripe { 
+        font-size: 220%;
+    }
+
+    .section-header { 
+        font-size: 200%;
+    }
+
+    .content-item { 
+        font-size: 180%;
     }
 }
