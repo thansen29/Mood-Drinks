@@ -16,7 +16,6 @@
 
 .col-wrapper {
     height: 350px;
-    // width: 25%;
     width: 350px;
     margin: 5px;
 }
@@ -38,14 +37,10 @@
     justify-content: center;
     height: 100%;
     width: 100%;
-    // width: 350px;
-    // height: 350px; 
     position: relative;
     & img {
         height: 100%;
         width: 100%;
-        // width: 350px;
-        // height: 350px;
     }
 }
 
