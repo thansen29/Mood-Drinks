@@ -6,7 +6,6 @@ import DrinkShow from './drinks/drink_show';
 const Root = () => (
     <div>
         <Route path="/" component={ App }></Route>
-        {/* <Route path="/drink/:id" component={ DrinkShow }></Route> */}
     </div>
 );
 

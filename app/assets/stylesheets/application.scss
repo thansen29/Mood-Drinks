@@ -14,32 +14,29 @@
  *= require_self
  */
 
-//  media 1500
-
-// media 800
-// header-stripe 26px
-// section-header 22px
-//content-item 16px
-
 @media screen and (max-width: 1500px) {
     .input-label {
-        font-size: 170%;
+        font-size: 140%;
     }
 
     .header-stripe { 
-        font-size: 220%;
+        font-size: 180%;
     }
 
     .section-header { 
-        font-size: 195%;
+        font-size: 150%;
     }
 
     .content-item { 
-        font-size: 170%;;
+        font-size: 130%;;
     }
 
     .search-field {
-        font-size: 140%;
+        font-size: 110%;
+    }
+
+    .show-section {
+        width: 65%;
     }
 }
 
@@ -54,7 +51,8 @@
     }
 
     .input-label {
-        font-size: 220%;
+        // font-size: 220%;
+        font-size: 22px;
     }
 
     .header-stripe { 
@@ -67,5 +65,9 @@
 
     .content-item { 
         font-size: 200%;
+    }
+
+    .show-section {
+        width: 75%;
     }
 }

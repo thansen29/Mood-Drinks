@@ -1,38 +1,20 @@
 import { connect } from 'react-redux';
+import * as _ from 'lodash';
 import { fetchDrinks } from '../../actions/drink_actions';
 import DrinksIndex from './drinks_index';
-import * as _ from 'lodash';
+import { mergeDrinks } from '../../reducers/selectors';
 
 const mapStateToProps = state => {
   const drinks = state.drinks.drinks;
   const genres = state.genres.genreResults;
-  let merged = [];
   let newMerged;
   let cleared;
 
   if (genres.length) {
-    _.forEach(drinks, drink => {
-
-      let count = _.intersection(drink.genres, genres).length
-      
-      if (count) {
-        merged.push({ drink, count});
-      }
-    });
-    
-    newMerged = _.sortBy(merged, ['count']).reverse().slice(0, 4);
-    if (!newMerged.length) {
-      // set default here
-        _.forEach(drinks, drink => {
-          if (drink.name === "Sea of Clouds (negroni)") {
-            newMerged = [{ drink: drink }];
-          }
-        });
-    } 
+    newMerged = mergeDrinks(drinks, genres);
   } 
 
   if (state.drinks.defaultDrink) {
-    debugger
     newMerged = [{ drink: state.drinks.defaultDrink }]
   }
 

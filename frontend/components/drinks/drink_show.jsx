@@ -15,10 +15,6 @@ class DrinkShow extends React.Component {
         const path = this.props.location.pathname.split('/');
         const id = +path[path.length-1];
         this.props.fetchDrink(id);
-
-        // const video =  document.getElementById('youtube'); 
-        // debugger
-        // video.mute();
     }
 
     componentWillUnmount() {

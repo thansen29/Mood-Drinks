@@ -55,5 +55,4 @@ export const clearSelected = () => dispatch => {
 
 export const resetGenres = () => dispatch => {
     dispatch(clearGenres());
-    // dispatch(actions.clearMedia('AudioPlayer'));
 }

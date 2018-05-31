@@ -1,7 +1,6 @@
 import { RECEIVE_GENRES } from '../actions/search_actions';
 import { CLEAR_GENRES } from '../actions/drink_actions';
 
-
 const initialState = {
   genreResults: [],
   justCleared: false

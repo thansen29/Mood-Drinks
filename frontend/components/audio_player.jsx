@@ -9,7 +9,7 @@ const defaultOptions = {
   autoplay: true,
   keyEnabled: true,
   verticalVolume: true,
-  volume: 0.2,
+  volume: 0.1,
 };
 
 initializeOptions(defaultOptions);

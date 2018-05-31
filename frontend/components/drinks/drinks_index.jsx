@@ -2,7 +2,6 @@ import React from 'react';
 import DrinkItem from './drink_item';
 import * as _ from 'lodash';
 
-// clearing the store on the nav bar clears it but it says no results
 class DrinksIndex extends React.Component {
     constructor(props) {
         super(props);

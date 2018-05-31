@@ -1,6 +1,5 @@
 import React from 'react';
 import * as _ from 'lodash';
-// import SearchResultItem from './search_result_item';
 
 class Header extends React.Component {
   constructor(props) {
@@ -18,7 +17,6 @@ class Header extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.triggerSearch = this.triggerSearch.bind(this);
     this.handleSelection = this.handleSelection.bind(this);
-    // this.fetchGenres = this.fetchGenres.bind(this);
   }
 
   handleChange(field) {
@@ -48,14 +46,6 @@ class Header extends React.Component {
       this.props.fetchSong(song, details);
     }
   }
-
-  // fetchGenres(e) {
-  //   e.preventDefault();
-  //   this.setState({ selected: false, searchField: '' })
-  //   const array = this.state.searchField.split('by ');
-  //   const artist = array[array.length-1];
-  //   this.props.fetchGenres(artist);
-  // }
 
   render() {
     const { searchResults } = this.state;
@@ -96,12 +86,6 @@ class Header extends React.Component {
               className="search-field"
               value={ this.state.searchField }
               onChange={ this.handleChange('searchField') } />
-
-            {/* <button
-              className={ this.state.selected ? "submit-button" : "submit-button-disabled" }
-              disabled={ !this.state.selected }>
-              Find me drinks!
-            </button> */}
             
           </div>
 

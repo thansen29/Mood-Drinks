@@ -6,7 +6,6 @@ export const RECEIVE_GENRES = 'RECEIVE_GENRES';
 export const SET_DEFAULT = 'SET_DEFAULT';
 export const CLEAR_DEFAULT = 'CLEAR_DEFAULT';
 
-
 export const receiveGenres = (genres) => {
   return {
     type: RECEIVE_GENRES,
