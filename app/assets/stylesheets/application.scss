@@ -14,7 +14,7 @@
  *= require_self
  */
 
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1300px) {
     .input-label {
         font-size: 160%;
     }
@@ -40,7 +40,7 @@
     }
 }
 
-@media screen and(max-width: 800px) {
+@media screen and(max-width: 600px) {
     .drink-list {
         flex-direction: column;
         align-items: center;
