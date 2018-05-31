@@ -23,6 +23,9 @@ class DrinksIndex extends React.Component {
         } else {
             this.setState({ drinks: [], noResults: true })
         }
+        if (newProps.drinks && newProps.loading) {
+            this.props.stopLoading();
+        }
 
     }
 
@@ -46,17 +49,15 @@ class DrinksIndex extends React.Component {
         }
         return (
             <section className="drink-index-container">
-                { this.state.noResults 
-                ? 
-                <div className="no-results">
-                    Sorry, we couldn't find any drinks for that one 
-                </div>
-                : null}
+                { this.props.loading
+                ?
+                    <div className="loader">Loading...</div>  
+                :
+                    <ul className="drink-list">
+                        { drinks }
+                    </ul>
+                }
 
-                <ul className="drink-list">
-                    { drinks }
-                </ul>
-                
             </section>
         );
     }

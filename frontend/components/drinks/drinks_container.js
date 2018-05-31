@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import * as _ from 'lodash';
 import { fetchDrinks } from '../../actions/drink_actions';
+import { stopLoading } from '../../actions/ui_actions';
 import DrinksIndex from './drinks_index';
 import { mergeDrinks } from '../../reducers/selectors';
 
@@ -23,13 +24,15 @@ const mapStateToProps = state => {
   }
   return {
     drinks: newMerged,
-    cleared
+    cleared,
+    loading: state.ui.loading
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchDrinks: () => dispatch(fetchDrinks())
+    fetchDrinks: () => dispatch(fetchDrinks()),
+    stopLoading: () => dispatch(stopLoading())
   }
 }
 

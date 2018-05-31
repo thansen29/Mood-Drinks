@@ -46,6 +46,7 @@ class Header extends React.Component {
 
       const song = `${item.trackName} ${item.artistName}`;
       this.props.fetchSong(song, details);
+      this.props.startLoading();
     }
   }
 
@@ -93,14 +94,18 @@ class Header extends React.Component {
 
           <div className="results-wrapper">
           
-            { this.props.loading
+            {/* { this.props.loading
             ?
               <div className="loader">Loading...</div>  
             : 
               <ul className="list-ul">
                 { items }
               </ul>
-            }
+            } */}
+
+                          <ul className="list-ul">
+                { items }
+              </ul>
 
 
           </div>
