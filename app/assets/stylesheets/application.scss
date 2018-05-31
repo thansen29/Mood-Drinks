@@ -32,7 +32,8 @@
     }
 
     .search-field {
-        font-size: 110%;
+        // font-size: 110%;
+        font-size: 16px !important;
     }
 
     .show-section {
@@ -47,12 +48,13 @@
     }
 
     .search-field {
-        font-size: 170%;
+        // font-size: 170%;
+        font-size: 18px !important;
     }
 
     .input-label {
-        // font-size: 220%;
-        font-size: 22px;
+        font-size: 220%;
+        // font-size: 22px;
     }
 
     .header-stripe { 
