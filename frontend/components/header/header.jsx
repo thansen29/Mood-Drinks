@@ -30,8 +30,10 @@ class Header extends React.Component {
   }
 
   triggerSearch() {
+    this.props.startLoading();
     this.props.searchTunes(this.state.searchField)
       .then((response) => {
+        this.props.stopLoading();
         const songData = response.data.results.slice(0, 5);
         this.setState({ searchResults: songData });
       });
@@ -90,9 +92,17 @@ class Header extends React.Component {
           </div>
 
           <div className="results-wrapper">
-            <ul className="list-ul">
-              { items }
-            </ul>
+          
+            { this.props.loading
+            ?
+              <div className="loader">Loading...</div>  
+            : 
+              <ul className="list-ul">
+                { items }
+              </ul>
+            }
+
+
           </div>
 
         </form>

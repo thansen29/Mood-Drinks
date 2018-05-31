@@ -41,9 +41,13 @@ class SearchController < ApplicationController
     track = RestClient.get("https://api.spotify.com/v1/search?q=#{song}&type=track",
                         {"Authorization" => "Bearer #{token}"})
 
-    preview_url = JSON.parse(track.body)['tracks']['items'][0]['preview_url']
-    # external_url = JSON.parse(track.body)['tracks']['items'][0]['album']['external_urls']['spotify']
-    # debugger
+    parsed = JSON.parse(track.body)['tracks']['items']
+    if parsed.length > 0 
+      preview_url = parsed[0]['preview_url']
+    else 
+      preview_url = ''
+    end 
+    
     render json: { previewUrl: preview_url }
 
   end 
